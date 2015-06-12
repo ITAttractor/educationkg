@@ -8,6 +8,6 @@ class Region extends Eloquent{
 
 	public function districts()
 	{
-		return $this->hasMany('districts');
+		return $this->hasMany('District');
 	}
 }

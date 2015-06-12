@@ -14,7 +14,6 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
 	public function showWelcome()
 	{
 		$students = file_get_contents('http://api-srv.opendata-hackathon.com/ntc_result');

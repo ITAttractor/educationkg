@@ -13,6 +13,11 @@ class District extends Eloquent{
 
     public function schools()
 	{
-		return $this->hasMany('schools');
+		return $this->hasMany('School', 'district_id', 'id');
+	}
+
+	public function students()
+	{
+		return $this->hasManyThrough('Student', 'School');
 	}
 }

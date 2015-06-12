@@ -7,7 +7,9 @@
 		"laravel/framework": "4.2.*",
 		"way/generators": "~2.0",
 		"goodby/csv": "*",
-		"keboola/csv": "1.1.*"
+		"keboola/csv": "1.1.*",
+		"laracasts/utilities": "~1.0",
+		"barryvdh/laravel-debugbar": "~1.8"
 	},
 	"autoload": {
 		"classmap": [
