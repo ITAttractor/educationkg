@@ -24,6 +24,7 @@
 		$(document).ready(function(){
 			$.get(school.home_url + '/region/all', function(data){
 				window.data = data;
+				$('.regions').append('<option value="">Выберите регион</option>')
 				$.each(data, function(key, value){
 					$('.regions').append('<option value=' + value.id + '>' + value.title + '</option>')
 				})
@@ -37,6 +38,7 @@
 				    .remove()
 				    .end()
 				$.get(school.home_url + '/district/' + $(this).val(), function(data){
+					$('.districts').append('<option value="">Выберите район</option>')
 					$.each(data, function(key, value){
 						$('.districts').append('<option value=' + value.id + '>' + value.title + '</option>')
 					})

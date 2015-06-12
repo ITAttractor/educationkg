@@ -2,12 +2,13 @@
 
 @section('content')
 	
+	
 	<br><br><br>
 	<div class="col-md-4"></div>
 	<div class="col-md-4 theapp">
 		
 		
-		<form class="form-inline">
+		<div class="form-inline">
 		  <div class="form-group">
 		    <input type="text" class="mark form-control" placeholder="оценка">
 		  </div>
@@ -17,8 +18,9 @@
 				<option value="{{$lesson}}">{{$lesson}}</option>
 				@endforeach
 			</select>
+
 		  </div>
-		</form>
+		</div>
 		<select class="regions form-control">
 			
 		</select> 
@@ -26,11 +28,40 @@
 
 		<p></p>
 
-		<button class="check btn btn-default">check</button><br><br>
-	</div>
+		<button class="check btn btn-default">Найти своё место в рейтинге</button><br><br>
 
+		<canvas id="myChart" width="400" height="400"></canvas>
+		<p style="color:white" height="400">as</p>
+	</div>
+	<p></p>
 	<script>
-		$(document).ready(function(){
+		
+	var data = {
+    labels: ["Результаты - Мин, Ваш, Макс"],
+    datasets: [
+        {
+            label: "Минимум",
+            fillColor: "red",
+            data: [0]
+        },
+        {
+            label: "Ваш результат",
+            fillColor: "yellow",
+            data: [0]
+        },
+        {
+            label: "Максимум",
+            fillColor: "green",
+            data: [0]
+        }
+    ]
+};
+	var ctx = document.getElementById("myChart").getContext("2d");
+	var myBarChart = new Chart(ctx).Bar(data);
+
+$(document).ready(function(){
+
+
 			$.get(school.home_url + '/region/all', function(data){
 				$('.regions').append('<option value="null"></option>')
 				$.each(data, function(key, value){
@@ -64,13 +95,16 @@
 				$('.app-districts').after('<select class="schools form-control"></select>')
 				
 				$.get(school.home_url + '/district/schools/' + $(this).val(), function(data){
+					$('.schools').append('<option value=""></option>')
 					$.each(data, function(key, value){
 						$('.schools').append('<option value=' + value.id + '>' + value.title + '</option>')
 					})
 				});
 			})
 
-			$('.mark').on('input', function(){
+
+			$('.check').on('click', function(e){
+
 				var info = {
 					mark : $('.mark').val(),
 					lesson : $('.lessons').val(),
@@ -81,10 +115,18 @@
 
 				$.get(school.home_url + '/student/checkgrade', info, function(result){
 					data = $.parseJSON(result);
+					console.log(data);
 					$('.the-result').remove();
+					myBarChart.datasets[0].bars[0].value = data.min;
+					myBarChart.datasets[1].bars[0].value = $('.mark').val();
+					myBarChart.datasets[2].bars[0].value = data.max;
+					myBarChart.update();
 					$('.check').after('<p class="the-result" >Ваш результат занимает ' + data.place + ' место среди ' + data.all + ' сдавших</p>');
 				});
-			})
+			});
+			
+
 		});
 	</script>
+
 @stop

@@ -15,7 +15,7 @@ class DistrictController extends BaseController{
 	{
 		$request = District::where('districts.id', $dist_id)
 			->join('schools', 'schools.district_id', '=', 'districts.id')
-			->join('students', 'students.school_id', '=', 'schools.id')
+			->leftJoin('students', 'students.school_id', '=', 'schools.id')
 			->groupBy('schools.id')
 			->select('schools.title', 'schools.id',
 				DB::raw('AVG(students.math) as math'), 
@@ -39,7 +39,6 @@ class DistrictController extends BaseController{
 		}else{
 			$results = $request->get();
 		}
-
 		return View::make('district.all', compact('results'));
 	}
 

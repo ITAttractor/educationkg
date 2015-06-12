@@ -26,8 +26,12 @@ Route::get('district/avg/{id}', 'SupController@avgByDistSchool');
 Route::get('district/all', 'DistrictController@allDistricts');
 Route::get('district/{id}', 'DistrictController@getDistricts');
 Route::get('region/all', 'RegionController@allRegions');
-Route::get('school/{id}',['uses' => 'SchoolController@showSchool', 'as' => 'school']);
+
+Route::get('school/top', 'SchoolController@getTop');
+Route::get('region/stats', 'RegionController@stats');
 
 Route::get('student/grade', 'StudentController@getGrade');
 Route::get('district/schools/{id}', 'DistrictController@getDistrictSchools');
 Route::get('student/checkgrade', 'StudentController@checkGrade');
+Route::get('school/jsonGetTop', 'SchoolController@jsonTop');
+Route::get('school/{id}',['uses' => 'SchoolController@showSchool', 'as' => 'school']);

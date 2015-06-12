@@ -6,7 +6,7 @@ class Student extends Eloquent{
 
 	public $guarded = ['id'];
 
-	public static $lessons = ['math', 'physics', 'chemistry', 'geometry', 'biology', 'geography', 'history', 'english_lang', 'german_lang', 'french_lang', 'kyrgyz_lang', 'russian_lang', 'uzbek_lang', 'informatics', 'civics'];
+	public static $lessons = ['math', 'physics', 'chemistry', 'geometry', 'biology', 'geography', 'history', 'english_lang', 'german_lang', 'french_lang', 'kyrgyz_lang', 'russian_lang', 'uzbek_lang'];
 
 	public function schools()
     {

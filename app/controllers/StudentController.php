@@ -20,9 +20,13 @@ class StudentController extends BaseController{
 	 	 
 	 	$place = Student::whereIn('school_id', $school_ids)->where($lesson, '>', $mark)->count();
 	 	$all = Student::whereIn('school_id', $school_ids)->whereNotNull($lesson)->count();
+	 	$min = Student::whereIn('school_id', $school_ids)->min($lesson);
+	 	$max = Student::whereIn('school_id', $school_ids)->max($lesson);
 
-	 	$result['place'] 	= 	$place; 
-	 	$result['all'] 		=	$all;
+	 	$result['min'] 		= 	$min;
+	 	$result['max'] 		= 	$max;
+	 	$result['place'] 	= 	$place + 1; 
+	 	$result['all'] 		=	$all ;
 	 	return json_encode($result);
 	}
 }
