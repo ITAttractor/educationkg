@@ -7,21 +7,12 @@
 import logging
 import json
 import requests
-from scraper.settings import API_KEY, BASE_URL
-from scraper.spiders import BillSpider
-from scraper.spiders.DeputySpider import DeputySpider
-from scraper.spiders.FactionSpider import FactionSpider
-from scraper.spiders.SkipSpider import SkipSpider
-from scraper.spiders.VoteSpider import VoteSpider
+from scraper.settings import API_KEY
 from scrapy.utils.serialize import ScrapyJSONEncoder
 
 
 url_hash = {
-    FactionSpider: BASE_URL + "/api/factions",
-    DeputySpider: BASE_URL + "/api/deputies",
-    BillSpider: BASE_URL + "/api/bills",
-    SkipSpider: BASE_URL + "/api/skips",
-    VoteSpider: BASE_URL + "/api/votes"
+
 }
 
 

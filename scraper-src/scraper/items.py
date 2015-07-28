@@ -9,7 +9,7 @@ import scrapy
 
 
 class Location(scrapy.Item):
-    title = scrapy.Field()
+    location = scrapy.Field()
     schools = scrapy.Field()
 
 

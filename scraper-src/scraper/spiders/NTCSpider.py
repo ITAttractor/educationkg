@@ -23,6 +23,8 @@ RESULTS_TR_XPATH = ".//table//td[p/text() >= 1]/.."
 SCHOOL_TITLE_XPATH = "(./preceding::*[contains(@class, '%s')])[last()]/descendant-or-self::*/text()"
 
 RESULT_TABLE_XPATH = "./td[%d]/descendant-or-self::*/text()"
+LOCATION_XPATH = "//div[@id='page_1']/div/div[3]//p[2]/descendant-or-self::text()"
+
 FULL_NAME_TD_ID = 2
 MATH_TD_ID = 3
 PHYSICS_TD_ID = 4
@@ -157,7 +159,6 @@ class NTCSpider(CrawlSpider):
     def parse_ntc(self, response):
         self.logger.debug("Parsing NTC")
         location_item = Location()
-        location_item['title'] = None
 
         result_extractor = ResultExtractor()
         match = re.search(SCHOOL_CSS_SELECTOR_PATTERN % SCHOOL_SELECTOR_GROUP_NAME, response.body)
@@ -165,6 +166,8 @@ class NTCSpider(CrawlSpider):
 
         cleaned_html = self.get_cleaned_html(response)
         selector = Selector(text=cleaned_html)
+        location_text_list = selector.xpath(LOCATION_XPATH).extract()
+        location_item['location'] = "".join(location_text_list)
         result_extractor.selector = selector
 
         location_item['schools'] = result_extractor.get_results_by_school()

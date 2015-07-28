@@ -13,7 +13,7 @@ class NTCSpiderTests(TestCase):
         response = fake_response(os.path.join('testdata', 'ntc.html'))
         actual = self.spider.parse_ntc(response).next()
 
-        actual_region_title = actual['title']
+        actual_location = actual['location']
         actual_schools_list = actual['schools']
 
         expected_schools_part = {'results': [{'biology': None,
@@ -135,6 +135,6 @@ class NTCSpiderTests(TestCase):
                               'physics': None,
                               'rus_lang': None,
                               'uzb_lang': None}], 'title': u'Абитуриент'}
-        expected_region_title = None
+        expected_location = u'г. Бишкек г. БишкекНЦТ'
         self.assertTrue(expected_schools_part in actual_schools_list)
-        self.assertEqual(actual_region_title, expected_region_title)
+        self.assertEqual(actual_location, expected_location)
