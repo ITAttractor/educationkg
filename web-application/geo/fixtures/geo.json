@@ -1,0 +1,513 @@
+[
+  {
+    "fields": {
+      "title": "\u0433. \u0411\u0438\u0448\u043a\u0435\u043a"
+    },
+    "model": "geo.region",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "title": "\u0433. \u041e\u0448"
+    },
+    "model": "geo.region",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "title": "\u0411\u0430\u0442\u043a\u0435\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "title": "\u0414\u0436\u0430\u043b\u0430\u043b-\u0410\u0431\u0430\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "title": "\u0418\u0441\u0441\u044b\u043a-\u041a\u0443\u043b\u044c\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "title": "\u041d\u0430\u0440\u044b\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "title": "\u041e\u0448\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "title": "\u0422\u0430\u043b\u0430\u0441\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "title": "\u0427\u0443\u0439\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+    },
+    "model": "geo.region",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "region": 1,
+      "title": "\u041e\u043a\u0442\u044f\u0431\u0440\u044c\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "region": 1,
+      "title": "\u041f\u0435\u0440\u0432\u043e\u043c\u0430\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "region": 1,
+      "title": "\u0421\u0432\u0435\u0440\u0434\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "region": 1,
+      "title": "\u041b\u0435\u043d\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "region": 3,
+      "title": "\u0411\u0430\u0442\u043a\u0435\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "region": 3,
+      "title": "\u041a\u0430\u0434\u0430\u043c\u0436\u0430\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "region": 3,
+      "title": "\u041b\u0435\u0439\u043b\u0435\u043a\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "region": 3,
+      "title": "\u0433. \u0411\u0430\u0442\u043a\u0435\u043d"
+    },
+    "model": "geo.district",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "region": 3,
+      "title": "\u0433. \u041a\u044b\u0437\u044b\u043b-\u041a\u0438\u044f"
+    },
+    "model": "geo.district",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "region": 3,
+      "title": "\u0433. \u0421\u0443\u043b\u044e\u043a\u0442\u0430"
+    },
+    "model": "geo.district",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0410\u043a\u0441\u044b\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0410\u043b\u0430-\u0411\u0443\u043a\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0411\u0430\u0437\u0430\u0440-\u041a\u043e\u0440\u0433\u043e\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u041d\u043e\u043e\u043a\u0435\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0421\u0443\u0437\u0430\u043a\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0422\u043e\u0433\u0443\u0437-\u0422\u043e\u0440\u043e\u0443\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0422\u043e\u043a\u0442\u043e\u0433\u0443\u043b\u044c\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0427\u0430\u0442\u043a\u0430\u043b\u044c\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0433. \u0414\u0436\u0430\u043b\u0430\u043b-\u0410\u0431\u0430\u0434"
+    },
+    "model": "geo.district",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0433. \u041a\u0430\u0440\u0430-\u041a\u0443\u043b\u044c"
+    },
+    "model": "geo.district",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0433. \u041c\u0430\u0439\u043b\u0443\u0443-\u0421\u0443\u0443"
+    },
+    "model": "geo.district",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0433. \u0422\u0430\u0448-\u041a\u0443\u043c\u044b\u0440"
+    },
+    "model": "geo.district",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0410\u043a-\u0421\u0443\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0414\u0436\u0435\u0442\u0438-\u041e\u0433\u0443\u0437\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0418\u0441\u0441\u044b\u043a-\u041a\u0443\u043b\u044c\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0422\u043e\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0422\u044e\u043f\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0433. \u0411\u0430\u043b\u044b\u043a\u0447\u0438"
+    },
+    "model": "geo.district",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "region": 5,
+      "title": "\u0433. \u041a\u0430\u0440\u0430\u043a\u043e\u043b"
+    },
+    "model": "geo.district",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "region": 6,
+      "title": "\u0410\u043a-\u0422\u0430\u043b\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "region": 6,
+      "title": "\u0410\u0442-\u0411\u0430\u0448\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "region": 6,
+      "title": "\u0416\u0443\u043c\u0433\u0430\u043b\u044c\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "region": 6,
+      "title": "\u041a\u043e\u0447\u043a\u043e\u0440\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "region": 6,
+      "title": "\u041d\u0430\u0440\u044b\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "region": 6,
+      "title": "\u0433. \u041d\u0430\u0440\u044b\u043d"
+    },
+    "model": "geo.district",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u0410\u043b\u0430\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u0410\u0440\u0430\u0432\u0430\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u041a\u0430\u0440\u0430-\u041a\u0443\u043b\u044c\u0434\u0436\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u041a\u0430\u0440\u0430-\u0421\u0443\u0443\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u041d\u043e\u043e\u043a\u0430\u0442\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u0423\u0437\u0433\u0435\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u0427\u043e\u043d-\u0410\u043b\u0430\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "region": 8,
+      "title": "\u0411\u0430\u043a\u0430\u0439-\u0410\u0442\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "region": 8,
+      "title": "\u041a\u0430\u0440\u0430-\u0411\u0443\u0443\u0440\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "region": 8,
+      "title": "\u041c\u0430\u043d\u0430\u0441\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "region": 8,
+      "title": "\u0422\u0430\u043b\u0430\u0441\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "region": 8,
+      "title": "\u0433. \u0422\u0430\u043b\u0430\u0441"
+    },
+    "model": "geo.district",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u0410\u043b\u0430\u043c\u0443\u0434\u0443\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u0416\u0430\u0439\u044b\u043b\u044c\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u041a\u0435\u043c\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u041f\u0430\u043d\u0444\u0438\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u0421\u043e\u043a\u0443\u043b\u0443\u043a\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u0427\u0443\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u042b\u0441\u044b\u043a-\u0410\u0442\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d"
+    },
+    "model": "geo.district",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "region": 9,
+      "title": "\u0433. \u0422\u043e\u043a\u043c\u0430\u043a"
+    },
+    "model": "geo.district",
+    "pk": 56
+  }
+]
