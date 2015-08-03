@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+API_KEY = 'fcba32fdf0fd3c299072ffe2b1e8fbc1'
+
 
 # Application definition
 
@@ -38,7 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'geo',
-    'schools'
+    'schools',
+    'ntc'
 )
 
 MIDDLEWARE_CLASSES = (
