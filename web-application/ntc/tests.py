@@ -2,8 +2,10 @@
 import os
 from django.conf import settings
 from django.test import TestCase, Client
+from ntc.data_integrator import DataIntegrator, Searcher
 from ntc.data_saver import NTCDataSaver
-from ntc.models import ParsedNTC
+from ntc.models import ParsedNTC, NTC
+from schools.models import School
 
 
 class DataSaverTests(TestCase):
@@ -108,3 +110,37 @@ class NTCApiViewTests(TestCase):
 
         self.assertEqual(actual_status_code, expected_status_code)
         self.assertEqual(actual_response_content, expected_response_content)
+
+
+class SearcherTests(TestCase):
+    fixtures = ['geo.json', 'schools.json']
+
+    def test_search_school(self):
+        location_title_text = u'Нарынская область г. Нарын'
+        school_title_text = u'Жакыпов К. №5'
+        searcher = Searcher(location_title_text, school_title_text)
+        actual_school = searcher.search_for_school()
+        expected_school_title = u'Средняя общеобразовательная школа №5 имени К.Жакыпова '
+        self.assertEqual(actual_school.title, expected_school_title)
+
+
+class DataIntegratorTests(TestCase):
+    fixtures = ['geo.json', 'schools.json']
+
+    def setUp(self):
+        self.parsed_ntc = ParsedNTC.objects.create()
+        self.parsed_ntc.location = u'Нарынская область г. Нарын'
+        self.parsed_ntc.school_title = u'Жакыпов К. №5'
+        self.parsed_ntc.full_name = u'АБДЫЛАСОВА ЖИБЕК'
+        self.parsed_ntc.chemistry = '16'
+        self.integrator = DataIntegrator([self.parsed_ntc])
+
+    def test_search_school(self):
+        self.integrator.integrate()
+        first_ntc_result = NTC.objects.first()
+        expected_full_name = u'АБДЫЛАСОВА ЖИБЕК'
+        expected_school = School.objects.get(pk=1216)
+        expected_chemistry_result = 16
+        self.assertEqual(first_ntc_result.full_name, expected_full_name)
+        self.assertEqual(first_ntc_result.school, expected_school)
+        self.assertEqual(first_ntc_result.chemistry, expected_chemistry_result)

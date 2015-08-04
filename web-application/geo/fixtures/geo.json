@@ -509,5 +509,21 @@
     },
     "model": "geo.district",
     "pk": 56
+  },
+  {
+    "fields": {
+      "region": 4,
+      "title": "\u0433. \u041a\u043e\u043a-\u0414\u0436\u0430\u043d\u0433\u0430\u043a"
+    },
+    "model": "geo.district",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "region": 7,
+      "title": "\u0433. \u041e\u0448"
+    },
+    "model": "geo.district",
+    "pk": 58
   }
 ]
