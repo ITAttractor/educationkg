@@ -116,8 +116,10 @@ class ResultExtractor(object):
         if value == NBSP:
             return None
         else:
-            return value.split("/")[0]
-
+            try:
+                return value.split("/")[0]
+            except AttributeError:
+                return None
 
 
 class NTCSpider(CrawlSpider):
