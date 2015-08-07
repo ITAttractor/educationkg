@@ -6,3 +6,6 @@ class School(models.Model):
     address = models.CharField(max_length=255, null=True)
     phone = models.CharField(max_length=255, null=True)
     district = models.ForeignKey('geo.District')
+
+    def __unicode__(self):
+        return "%s (%s)" % (self.title, self.district.title)

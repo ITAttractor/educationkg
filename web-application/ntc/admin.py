@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin.filters import SimpleListFilter
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
-from ntc.models import ParsedNTC, IntegrationQueue
+from ntc.models import ParsedNTC, IntegrationQueue, NTC
 
 
 class IntegratedListFilter(SimpleListFilter):
@@ -70,5 +70,11 @@ class IntegrationQueueAdmin(admin.ModelAdmin):
     not_integrated_count.short_description = "Not integrated"
 
 
+class NTCAdmin(admin.ModelAdmin):
+    list_display = ["full_name", "school"]
+    search_fields = ['full_name', 'school']
+
+
+admin.site.register(NTC, NTCAdmin)
 admin.site.register(IntegrationQueue, IntegrationQueueAdmin)
 admin.site.register(ParsedNTC, ParsedNTCAdmin)
