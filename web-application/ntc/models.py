@@ -22,9 +22,18 @@ class ParsedNTC(models.Model):
     informatics = models.CharField(max_length=5, null=True, blank=True)
     civics = models.CharField(max_length=5, null=True, blank=True)
     notes = models.CharField(max_length=5, null=True, blank=True)
+    integration_queue = models.ForeignKey('IntegrationQueue')
 
     def __unicode__(self):
         return '%s (%s - %s)' % (self.full_name, self.school_title, self.location)
+
+
+class IntegrationQueue(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    status = models.NullBooleanField()
+
+    def __unicode__(self):
+        return "%s - %s" % (self.id, self.timestamp.strftime("%d.%m.%y %H:%M"))
 
 
 class NTC(models.Model):
@@ -46,6 +55,7 @@ class NTC(models.Model):
     informatics = models.PositiveSmallIntegerField(null=True, blank=True)
     civics = models.PositiveSmallIntegerField(null=True, blank=True)
     notes = models.CharField(max_length=5, null=True, blank=True)
+    parsed_ntc = models.OneToOneField('ParsedNTC')
 
     def __unicode__(self):
         return '%s - %s' % (self.full_name, self.school.title)

@@ -7,12 +7,12 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ntc', '0003_auto_20150803_0915'),
+        ('ntc', '0002_auto_20150807_0513'),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='ntc',
-            name='district',
+            model_name='parsedntc',
+            name='integrated',
         ),
     ]

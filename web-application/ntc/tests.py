@@ -1,10 +1,11 @@
 # coding=utf-8
 import os
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase, Client
 from ntc.data_integrator import DataIntegrator, Searcher
 from ntc.data_saver import NTCDataSaver
-from ntc.models import ParsedNTC, NTC
+from ntc.models import ParsedNTC, NTC, IntegrationQueue
 from schools.models import School
 
 
@@ -127,16 +128,18 @@ class SearcherTests(TestCase):
 class DataIntegratorTests(TestCase):
     fixtures = ['geo.json', 'schools.json']
 
-    def setUp(self):
-        self.parsed_ntc = ParsedNTC.objects.create()
-        self.parsed_ntc.location = u'Нарынская область г. Нарын'
-        self.parsed_ntc.school_title = u'Жакыпов К. №5'
-        self.parsed_ntc.full_name = u'АБДЫЛАСОВА ЖИБЕК'
-        self.parsed_ntc.chemistry = '16'
-        self.integrator = DataIntegrator([self.parsed_ntc])
+    def test_integration_complete(self):
+        integration_queue = IntegrationQueue.objects.create()
+        parsed_ntc = ParsedNTC()
+        parsed_ntc.location = u'Нарынская область г. Нарын'
+        parsed_ntc.school_title = u'Жакыпов К. №5'
+        parsed_ntc.full_name = u'АБДЫЛАСОВА ЖИБЕК'
+        parsed_ntc.chemistry = '16'
+        parsed_ntc.integration_queue = integration_queue
+        parsed_ntc.save()
+        integrator = DataIntegrator(integration_queue)
 
-    def test_search_school(self):
-        self.integrator.integrate()
+        integrator.integrate()
         first_ntc_result = NTC.objects.first()
         expected_full_name = u'АБДЫЛАСОВА ЖИБЕК'
         expected_school = School.objects.get(pk=1216)
@@ -144,3 +147,27 @@ class DataIntegratorTests(TestCase):
         self.assertEqual(first_ntc_result.full_name, expected_full_name)
         self.assertEqual(first_ntc_result.school, expected_school)
         self.assertEqual(first_ntc_result.chemistry, expected_chemistry_result)
+        self.assertEqual(integration_queue.status, True)
+
+    def test_integration_fail(self):
+        integration_queue = IntegrationQueue.objects.create()
+        parsed_ntc = ParsedNTC()
+        parsed_ntc.location = u'Нарынская область г. Нарын'
+        parsed_ntc.school_title = u'unknown_school'
+        parsed_ntc.full_name = u'АБДЫЛАСОВА ЖИБЕК'
+        parsed_ntc.chemistry = '16'
+        parsed_ntc.integration_queue = integration_queue
+        parsed_ntc.save()
+        integrator = DataIntegrator(integration_queue)
+
+        integrator.integrate()
+
+        self.assertEqual(integration_queue.status, False)
+
+        try:
+            parsed_ntc.ntc
+            has_error = False
+        except ObjectDoesNotExist:
+            has_error = True
+
+        self.assertTrue(has_error)

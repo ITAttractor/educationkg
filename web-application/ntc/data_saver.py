@@ -1,6 +1,5 @@
 import json
-import datetime
-from ntc.models import ParsedNTC
+from ntc.models import ParsedNTC, IntegrationQueue
 
 
 class NTCDataSaver(object):
@@ -8,6 +7,7 @@ class NTCDataSaver(object):
         self.data = None
         self.json = json
         self.objects_to_save = []
+        self.integration_queue = IntegrationQueue.objects.create()
 
     def load(self):
         self._convert_json()
@@ -46,4 +46,5 @@ class NTCDataSaver(object):
                 ntc.informatics = result['informatics']
                 ntc.civics = result['civics']
                 ntc.notes = result['notes']
+                ntc.integration_queue = self.integration_queue
                 self.objects_to_save.append(ntc)

@@ -33,35 +33,48 @@ class Searcher(object):
 
 
 class DataIntegrator(object):
-    def __init__(self, parsed_ntc_objects):
-        self.parsed_ntc_objects = parsed_ntc_objects
-        self.objects_to_save = []
+    def __init__(self, integration_queue):
+        self.integration_queue = integration_queue
+        self.ntc_objects_to_save = []
+        self.integrated = True
 
     def integrate(self):
-        for item in self.parsed_ntc_objects:
+        parsed_ntc_objects = self.integration_queue.parsedntc_set.filter(ntc__isnull=True)
+
+        for item in parsed_ntc_objects:
             self._prepare_object(item)
-        NTC.objects.bulk_create(self.objects_to_save)
+
+        NTC.objects.bulk_create(self.ntc_objects_to_save)
+        self.save_queue_status()
+
+    def save_queue_status(self):
+        self.integration_queue.status = self.integrated
+        self.integration_queue.save()
 
     def _prepare_object(self, item):
         searcher = Searcher(item.location, item.school_title)
         school = searcher.search_for_school()
-        ntc = NTC()
-        ntc.school = school
-        ntc.full_name = item.full_name
-        ntc.math = item.math
-        ntc.physics = item.physics
-        ntc.chemistry = item.chemistry
-        ntc.geometry = item.geometry
-        ntc.biology = item.biology
-        ntc.geography = item.geography
-        ntc.history = item.history
-        ntc.eng_lang = item.eng_lang
-        ntc.ger_lang = item.ger_lang
-        ntc.fr_lang = item.fr_lang
-        ntc.kyr_lang = item.kyr_lang
-        ntc.rus_lang = item.rus_lang
-        ntc.uzb_lang = item.uzb_lang
-        ntc.informatics = item.informatics
-        ntc.civics = item.civics
-        ntc.notes = item.notes
-        self.objects_to_save.append(ntc)
+        if school:
+            ntc = NTC()
+            ntc.school = school
+            ntc.full_name = item.full_name
+            ntc.math = item.math
+            ntc.physics = item.physics
+            ntc.chemistry = item.chemistry
+            ntc.geometry = item.geometry
+            ntc.biology = item.biology
+            ntc.geography = item.geography
+            ntc.history = item.history
+            ntc.eng_lang = item.eng_lang
+            ntc.ger_lang = item.ger_lang
+            ntc.fr_lang = item.fr_lang
+            ntc.kyr_lang = item.kyr_lang
+            ntc.rus_lang = item.rus_lang
+            ntc.uzb_lang = item.uzb_lang
+            ntc.informatics = item.informatics
+            ntc.civics = item.civics
+            ntc.notes = item.notes
+            ntc.parsed_ntc = item
+            self.ntc_objects_to_save.append(ntc)
+        else:
+            self.integrated = False

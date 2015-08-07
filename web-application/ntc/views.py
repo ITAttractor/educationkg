@@ -1,7 +1,10 @@
 from django.http.response import JsonResponse
+from django.shortcuts import redirect
 from django.views.generic.base import View
+from ntc.data_integrator import DataIntegrator
 from ntc.data_saver import NTCDataSaver
 from django.conf import settings
+from ntc.models import IntegrationQueue
 
 
 class NTCDataLoadApiView(View):
@@ -12,4 +15,13 @@ class NTCDataLoadApiView(View):
             return JsonResponse({'status': 'ok'})
         else:
             return JsonResponse({'error': 'wrong api key'}, status=401)
+
+
+class IntegrateView(View):
+    def get(self, request, *args, **kwargs):
+        integration_queue = IntegrationQueue.objects.get(pk=kwargs['queue_id'])
+        integrator = DataIntegrator(integration_queue)
+        integrator.integrate()
+
+        return redirect(request.META['HTTP_REFERER'])
 
