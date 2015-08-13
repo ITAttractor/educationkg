@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.db.models import Q
 from geo.models import Region, District
 from ntc.models import NTC
@@ -26,7 +27,7 @@ class Searcher(object):
         district = self._search_for_district()
         schools = School.objects.filter(district=district)
 
-        school_title_parts = self.school_title_text.split(" ")
+        school_title_parts = self.school_title_text.replace(u"№", "").split(" ")
         # http://stackoverflow.com/questions/7088173/how-to-query-model-where-name-contains-any-word-in-python-list
         filtered_schools = schools.filter(reduce(lambda x, y: x | y, [Q(title__contains=part) for part in school_title_parts]))
         return filtered_schools.first()
