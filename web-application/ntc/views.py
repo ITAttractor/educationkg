@@ -1,6 +1,6 @@
 from django.http.response import JsonResponse
 from django.shortcuts import redirect
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView
 from ntc.data_integrator import DataIntegrator
 from ntc.data_saver import NTCDataSaver
 from django.conf import settings
@@ -24,4 +24,12 @@ class IntegrateView(View):
         integrator.integrate()
 
         return redirect(request.META['HTTP_REFERER'])
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        return context
 
