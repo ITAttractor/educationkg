@@ -63,7 +63,7 @@ class IntegrationQueueAdmin(admin.ModelAdmin):
 
     def integrate(self, obj):
         html = '''<a class='button' href='%s'>Integrate</a>'''
-        url = reverse("integrate_ntc", kwargs={"queue_id": obj.id})
+        url = reverse("ntc:integrate_ntc", kwargs={"queue_id": obj.id})
         return html % url
 
     show_not_integrated_items.allow_tags = True
