@@ -38,8 +38,10 @@ class ParsedNTCAdmin(admin.ModelAdmin):
         except ObjectDoesNotExist:
             return False
 
+    integrated.boolean = True
+
     def queue(self, obj):
-        return '<a href="/admin/ntc/integrationqueue/?q={0}">Queue({0})</a>'.format(obj.integration_queue.id)
+        return '<a href="{url}?q={query}">Queue({query})</a>'.format(url=reverse('admin:ntc_integrationqueue_changelist'), query=obj.integration_queue.id)
 
     queue.allow_tags = True
 
@@ -56,8 +58,8 @@ class IntegrationQueueAdmin(admin.ModelAdmin):
         return obj.parsedntc_set.filter(ntc__isnull=True).count()
 
     def show_not_integrated_items(self, obj):
-        return '<a href="/admin/ntc/parsedntc/?integrated=False&integration_queue__id__exact={0}">{1} items</a>'.format(obj.id, self.not_integrated_count(obj))
-
+        return '<a href="{url}?integrated=False&integration_queue__id__exact={id}">{count} items</a>'.format(url=reverse('admin:ntc_parsedntc_changelist'), id=obj.id,
+                                                                                                             count=self.not_integrated_count(obj))
 
     def integrate(self, obj):
         html = '''<a class='button' href='%s'>Integrate</a>'''

@@ -1,0 +1,11 @@
+{% load pagination %}
+{% for school in schools %}
+    <div>
+        <p>{{ school.title }}</p>
+
+        <p>{{ school.address }}</p>
+        <hr>
+    </div>
+{% endfor %}
+{% url 'schools:search' as schools_search_url %}
+{% paginate schools_search_url %}

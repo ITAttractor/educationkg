@@ -1,9 +1,10 @@
 from django.http.response import JsonResponse
 from django.shortcuts import redirect
 from django.views.generic.base import View, TemplateView
+from django.conf import settings
+
 from ntc.data_integrator import DataIntegrator
 from ntc.data_saver import NTCDataSaver
-from django.conf import settings
 from ntc.models import IntegrationQueue
 
 
@@ -32,4 +33,3 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         return context
-

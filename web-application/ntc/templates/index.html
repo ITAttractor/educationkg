@@ -1,1 +1,25 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <label>
+        <input type="text" name="title">
+    </label>
+    <div data-content="schools"></div>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/school-searcher.js' %}"></script>
+    <script>
+        var searchUrl = '{% url 'schools:search' %}';
+        var schoolsContainer = $('[data-content="schools"]');
+        var titleInput = $('input[name="title"]');
+        var districtsInput = $('input[name="districts"]');
+
+        SchoolSearcher.init({
+            searchUrl: searchUrl,
+            schoolsContainer: schoolsContainer,
+            titleInput: titleInput,
+            districtsInputs: districtsInput,
+            paginationLinkSelector: '[data-action="pagination"]'
+        });
+    </script>
+{% endblock %}

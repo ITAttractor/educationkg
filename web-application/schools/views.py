@@ -1,3 +1,25 @@
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
+from django.db.models import Q
+from django.views.generic import ListView
+from schools.models import School
 
-# Create your views here.
+
+class SchoolSearchView(ListView):
+    template_name = 'schools/partial_list_on_main_page.html'
+    model = School
+    paginate_by = 10
+    context_object_name = 'schools'
+
+    def get_queryset(self):
+        query = self._get_query()
+        print unicode(self.model.objects.filter(query).query)
+        return self.model.objects.filter(query)
+
+    def _get_query(self):
+        title = self.request.GET.get('title')
+        query = Q(title__icontains=title)
+        print self.request.GET
+        districts = self.request.GET.getlist('districts')
+        if districts:
+            query &= Q(district__pk__in=districts)
+        return query
