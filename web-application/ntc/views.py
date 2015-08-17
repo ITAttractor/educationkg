@@ -4,7 +4,7 @@ from django.views.generic.base import View, TemplateView
 from ntc.data_integrator import DataIntegrator
 from ntc.data_saver import NTCDataSaver
 from django.conf import settings
-from ntc.models import IntegrationQueue
+from ntc.models import IntegrationQueue, NTC
 
 
 class NTCDataLoadApiView(View):
@@ -33,3 +33,22 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
         return context
 
+
+class SearchResultView(TemplateView):
+    template_name = 'result_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SearchResultView, self).get_context_data(**kwargs)
+        full_name = kwargs.pop("full_name")
+        context['ntc_objects'] = NTC.objects.filter(full_name__istartswith=full_name)
+        return context
+
+
+class GetResultView(TemplateView):
+    template_name = 'result_popup_content.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GetResultView, self).get_context_data(**kwargs)
+        result_id = kwargs.pop('result_id')
+        context['result'] = NTC.objects.get(pk=result_id)
+        return context

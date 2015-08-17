@@ -1,0 +1,66 @@
+{% load i18n %}
+{{ result.full_name }}
+{% if result.math %}
+    {% trans 'Math' %}
+    {{ result.math }}
+{% endif %}
+{% if result.physics %}
+    {% trans 'Physics' %}
+    {{ result.physics }}
+{% endif %}
+{% if result.chemistry %}
+    {% trans 'Chemistry' %}
+    {{ result.chemistry }}
+{% endif %}
+{% if result.geometry %}
+    {% trans 'Geometry' %}
+    {{ result.geometry }}
+{% endif %}
+{% if result.biology %}
+    {% trans 'Biology' %}
+    {{ result.biology }}
+{% endif %}
+{% if result.geography %}
+    {% trans 'Geography' %}
+    {{ result.geography }}
+{% endif %}
+{% if result.history %}
+    {% trans 'History' %}
+    {{ result.history }}
+{% endif %}
+{% if result.eng_lang %}
+    {% trans 'English langugae' %}
+    {{ result.eng_lang }}
+{% endif %}
+{% if result.ger_lang %}
+    {% trans 'German language' %}
+    {{ result.ger_lang }}
+{% endif %}
+{% if result.fr_lang %}
+    {% trans 'French language' %}
+    {{ result.fr_lang }}
+{% endif %}
+{% if result.kyr_lang %}
+    {% trans 'Kyrgyz language' %}
+    {{ result.kyr_lang }}
+{% endif %}
+{% if result.rus_lang %}
+    {% trans 'Russian language' %}
+    {{ result.rus_lang }}
+{% endif %}
+{% if result.uzb_lang %}
+    {% trans 'Uzbek language' %}
+    {{ result.uzb_lang }}
+{% endif %}
+{% if result.informatics %}
+    {% trans 'Informatics' %}
+    {{ result.informatics }}
+{% endif %}
+{% if result.civics %}
+    {% trans 'Civics' %}
+    {{ result.informatics }}
+{% endif %}
+{% if result.notes %}
+    {% trans 'Notes' %}
+    <b>{{ result.notes }}</b>
+{% endif %}
