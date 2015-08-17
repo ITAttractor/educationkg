@@ -1,0 +1,10 @@
+{% load i18n %}
+<table>
+    {% for ntc in ntc_objects %}
+        <tr>
+            <td><a href="#" class="show-result-link" data-result-id="{{ ntc.id }}">{{ ntc.full_name.title }}</a></td>
+            <td>{{ ntc.school.title }}</td>
+            <td>{{ ntc.school.district.region }} - {{ ntc.school.district }}</td>
+        </tr>
+    {% endfor %}
+</table>
