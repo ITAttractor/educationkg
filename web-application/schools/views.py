@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.db.models import Q
 from django.views.generic import ListView
 from schools.models import School
@@ -12,14 +11,13 @@ class SchoolSearchView(ListView):
 
     def get_queryset(self):
         query = self._get_query()
-        print unicode(self.model.objects.filter(query).query)
         return self.model.objects.filter(query)
 
     def _get_query(self):
         title = self.request.GET.get('title')
         query = Q(title__icontains=title)
         print self.request.GET
-        districts = self.request.GET.getlist('districts')
-        if districts:
-            query &= Q(district__pk__in=districts)
+        district_pks = self.request.GET.getlist('districts')
+        if district_pks:
+            query &= Q(district__pk__in=district_pks)
         return query

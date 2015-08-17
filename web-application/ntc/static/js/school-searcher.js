@@ -3,15 +3,60 @@ var SchoolSearcher = {
         searchUrl: null,
         schoolsContainer: null,
         titleInput: null,
+        regionsInputs: null,
         districtsInputs: null,
         paginationLinkSelector: null
     },
 
+    getDistrictsByRegionId: function (regionId) {
+        var selector = '[data-region-id="' + regionId + '"]';
+        return this.params.districtsInputs.filter(selector);
+    },
+
+    getRegionByRegionId: function (regionId) {
+        var selector = '[value="' + regionId + '"]';
+        return this.params.regionsInputs.filter(selector);
+    },
+
     init: function (params) {
         $.extend(this.params, params);
-        this.params.titleInput.on('input', this.search.bind(this));
-        this.params.districtsInputs.on('change', this.search.bind(this));
+        this.bindTitleInput();
+        this.bindDistrictsInputs();
+        this.bindRegionsInputs();
         this.bindPaginationLinks();
+    },
+
+    bindTitleInput: function () {
+        this.params.titleInput.on('input', this.search.bind(this));
+    },
+
+    bindDistrictsInputs: function () {
+        var $this = this;
+        this.params.districtsInputs.on('change', this.search.bind(this));
+        this.params.districtsInputs.on('change', function () {
+            var regionId = $(this).data('region-id');
+            var region = $this.getRegionByRegionId(regionId);
+            var districtsInputsInRegion = $this.getDistrictsByRegionId(regionId);
+            if (districtsInputsInRegion.length == districtsInputsInRegion.filter(':checked').length) {
+                region.prop('checked', true);
+            } else {
+                region.prop('checked', false);
+            }
+        });
+    },
+
+    bindRegionsInputs: function () {
+        var $this = this;
+        this.params.regionsInputs.on('change', function () {
+            var regionId = $(this).val();
+            var districtsInputsInRegion = $this.getDistrictsByRegionId(regionId);
+            if (this.checked) {
+                districtsInputsInRegion.prop('checked', true);
+            } else {
+                districtsInputsInRegion.prop('checked', false);
+            }
+            $this.search();
+        });
     },
 
     bindPaginationLinks: function () {
@@ -30,7 +75,7 @@ var SchoolSearcher = {
     search: function () {
         var data = {
             title: this.getTitle(),
-            districts: this.getDistricts()
+            districts: this.getCheckedDistricts()
         };
         $.ajax(this.params.searchUrl, {
             data: data,
@@ -45,7 +90,7 @@ var SchoolSearcher = {
         return this.params.titleInput.val();
     },
 
-    getDistricts: function () {
+    getCheckedDistricts: function () {
         return this.params.districtsInputs.filter(':checked').map(function () {
             return $(this).val();
         }).get();
