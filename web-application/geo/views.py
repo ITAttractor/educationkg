@@ -15,6 +15,7 @@ class SchoolDataView(View):
             districts = region.district_set.all()
             region_school_count = School.objects.filter(district__in=districts).count()
             region_data = {"school_count": region_school_count}
+            region_data['title'] = region.title
             data[region.slug] = region_data
         return JsonResponse(data)
 
