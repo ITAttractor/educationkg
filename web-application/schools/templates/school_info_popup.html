@@ -1,0 +1,10 @@
+<script>
+    var chartData = {
+        school_averages: {{ school_averages }},
+        country_averages: {{ country_averages }},
+        subjects: {{ subjects | safe }}
+
+    };
+</script>
+<div id="chart"><canvas id="chrt" height="300" width="800">
+</canvas></div>

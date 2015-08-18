@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class ParsedNTC(models.Model):
@@ -39,22 +40,22 @@ class IntegrationQueue(models.Model):
 class NTC(models.Model):
     school = models.ForeignKey('schools.School')
     full_name = models.CharField(max_length=255, null=False, blank=False)
-    math = models.PositiveSmallIntegerField(null=True, blank=True)
-    physics = models.PositiveSmallIntegerField(null=True, blank=True)
-    chemistry = models.PositiveSmallIntegerField(null=True, blank=True)
-    geometry = models.PositiveSmallIntegerField(null=True, blank=True)
-    biology = models.PositiveSmallIntegerField(null=True, blank=True)
-    geography = models.PositiveSmallIntegerField(null=True, blank=True)
-    history = models.PositiveSmallIntegerField(null=True, blank=True)
-    eng_lang = models.PositiveSmallIntegerField(null=True, blank=True)
-    ger_lang = models.PositiveSmallIntegerField(null=True, blank=True)
-    fr_lang = models.PositiveSmallIntegerField(null=True, blank=True)
-    kyr_lang = models.PositiveSmallIntegerField(null=True, blank=True)
-    rus_lang = models.PositiveSmallIntegerField(null=True, blank=True)
-    uzb_lang = models.PositiveSmallIntegerField(null=True, blank=True)
-    informatics = models.PositiveSmallIntegerField(null=True, blank=True)
-    civics = models.PositiveSmallIntegerField(null=True, blank=True)
-    notes = models.CharField(max_length=5, null=True, blank=True)
+    math = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Math"))
+    physics = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Physics"))
+    chemistry = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Chemistry"))
+    geometry = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Geometry"))
+    biology = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Biology"))
+    geography = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Geography"))
+    history = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("History"))
+    eng_lang = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("English language"))
+    ger_lang = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("German language"))
+    fr_lang = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("French language"))
+    kyr_lang = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Kyrgyz language"))
+    rus_lang = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Russian language"))
+    uzb_lang = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Uzbek language"))
+    informatics = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Informatics"))
+    civics = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Civics"))
+    notes = models.CharField(max_length=5, null=True, blank=True, verbose_name=_("Notes"))
     parsed_ntc = models.OneToOneField('ParsedNTC')
 
     def __unicode__(self):
