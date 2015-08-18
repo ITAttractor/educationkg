@@ -1,7 +1,7 @@
 [
   {
     "fields": {
-      "slug": "state_bishkek",
+      "slug": "city_bishkek",
       "title": "\u0433. \u0411\u0438\u0448\u043a\u0435\u043a"
     },
     "model": "geo.region",
