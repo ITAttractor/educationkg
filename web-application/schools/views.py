@@ -19,7 +19,6 @@ class SchoolSearchView(ListView):
     def _get_query(self):
         title = self.request.GET.get('title')
         query = Q(title__icontains=title)
-        print self.request.GET
         district_pks = self.request.GET.getlist('districts')
         if district_pks:
             query &= Q(district__pk__in=district_pks)

@@ -1,11 +1,15 @@
-{% load pagination %}
-{% for school in schools %}
-    <div>
-        <p>{{ school.title }}</p>
-
-        <p>{{ school.address }}</p>
-        <hr>
-    </div>
-{% endfor %}
-{% url 'schools:search' as schools_search_url %}
-{% paginate schools_search_url %}
+{% load i18n pagination %}
+{% if schools %}
+    <ul>
+        {% for school in schools %}
+            <li>
+                <p><a href="#" class="school-name">{{ school.title }}</a></p>
+                <span class="school-adr">{{ school.address }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>{% trans 'Search has no results' %}</p>
+{% endif %}
+{#{% url 'schools:search' as schools_search_url %}#}
+{#{% paginate schools_search_url %}#}

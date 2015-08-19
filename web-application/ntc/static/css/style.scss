@@ -64,104 +64,107 @@ body {
     }
   }
 }
-.container{
+
+.container {
   width: 940px;
   margin: 0 auto;
 }
-.overflow-hidden{
+
+.overflow-hidden {
   overflow: hidden;
   position: relative;
 }
 
 //****************HEADER STYLES**********************
 
-.header{
+.header {
   background: #ffffff;
   position: relative;
   .logo {
     width: 410px;
     display: inline-block;
     margin-bottom: 5px;
-      h1 {
-        display: inline-block;
-        a {
-           font-family: 'open_sansregular';
-          font-weight: 400;
-          font-size: 24px;
-          line-height: 30px;
-          color: #ff9d29;
+    h1 {
+      display: inline-block;
+      a {
+        font-family: 'open_sansregular';
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 30px;
+        color: #ff9d29;
+        vertical-align: top;
+        border: 0;
+        strong {
           vertical-align: top;
-          border: 0;
-          strong{
-            vertical-align: top;
-          }
         }
       }
-      .logo-line{
-        width: 1px;
-        height: 80px;
-        background: #fedfba;
-        display: inline-block;
-        vertical-align: bottom;
+    }
+    .logo-line {
+      width: 1px;
+      height: 80px;
+      background: #fedfba;
+      display: inline-block;
+      vertical-align: bottom;
 
-        -ms-transform: rotate(30deg); /* IE 9 */
-        -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-        transform: rotate(30deg);
-      }
-      .descr-logo{
-        font-size: 14px;
-        line-height: 18px;
-        display: inline-block;
-        width: 253px;
-        vertical-align: text-top;
-        margin-top: 2px;
-        margin-left: 10px;
-      }
+      -ms-transform: rotate(30deg); /* IE 9 */
+      -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+      transform: rotate(30deg);
+    }
+    .descr-logo {
+      font-size: 14px;
+      line-height: 18px;
+      display: inline-block;
+      width: 253px;
+      vertical-align: text-top;
+      margin-top: 2px;
+      margin-left: 10px;
+    }
   }
-  .main-menu{
+  .main-menu {
 
     display: inline-block;
     position: absolute;
     top: 35px;
     right: -6px;
-    span{
-      a{
+    span {
+      a {
         font-size: 14px;
         line-height: 18px;
         color: #000000;
         margin: 0 5px;
-        &:hover{
+        &:hover {
           border: 0;
         }
       }
     }
   }
 }
+
 //****************FOOTER STYLES***********************************
-footer{
+footer {
   background: #302d2b;
   border-top: 1px solid #ff9d29;
-  .copyright{
+  .copyright {
     width: 700px;
     display: inline-block;
     padding-top: 9px;
     padding-bottom: 40px;
-    p{
+    p {
       font-size: 14px;
       line-height: 21px;
       color: #8d8a85;
       margin-left: -3px;
       margin-bottom: 10px;
-      a{
+      a {
         color: #ff9d29;
         border-bottom: 1px solid #ff9d29;
       }
     }
-    img{
+    img {
       margin-right: 40px;
     }
   }
-  .f-date{
+  .f-date {
     font-size: 14px;
     line-height: 24px;
     color: #8d8a85;
@@ -171,7 +174,6 @@ footer{
     padding-left: 93px;
   }
 }
-
 
 //*************************POPUPS**************************************
 .popup-overlay {
@@ -193,23 +195,25 @@ footer{
   height: 23px;
   background: url("../img/close-icon.png") 0 0 no-repeat;
 }
-.popup-sch-inner, .popup-pers-inner{
+
+.popup-sch-inner, .popup-pers-inner {
   width: 900px;
-    background: #ffffff;
-    position: absolute;
-    top: 107px;
-    left: 15%;
-    bottom: 20px;
-    z-index: 1005;
-    opacity: 1 !important;
-    padding: 27px 10px 50px 33px;
+  background: #ffffff;
+  position: absolute;
+  top: 107px;
+  left: 15%;
+  bottom: 20px;
+  z-index: 1005;
+  opacity: 1 !important;
+  padding: 27px 10px 50px 33px;
   -webkit-box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51);
--moz-box-shadow:    0px 40px 80px 0px rgba(148, 108, 61, 0.51);
-box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
-  span{
+  -moz-box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51);
+  box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51);
+  span {
     font-size: 16px !important;
   }
 }
+
 .popup-school {
   visibility: hidden;
   .popup-sch-inner {
@@ -316,10 +320,24 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
       background: transparent;
       padding: 10px 5px;
     }
-    ::-webkit-input-placeholder {color:#cacaca; font-family: 'open_sansregular';}
-      ::-moz-placeholder          {color:#cacaca; font-family: 'open_sansregular';}/* Firefox 19+ */
-      :-moz-placeholder           {color:#cacaca; font-family: 'open_sansregular';}/* Firefox 18- */
-      :-ms-input-placeholder      {color:#cacaca; font-family: 'open_sansregular';}
+    ::-webkit-input-placeholder {
+      color: #cacaca;
+      font-family: 'open_sansregular';
+    }
+    ::-moz-placeholder {
+      color: #cacaca;
+      font-family: 'open_sansregular';
+    }
+    /* Firefox 19+ */
+    :-moz-placeholder {
+      color: #cacaca;
+      font-family: 'open_sansregular';
+    }
+    /* Firefox 18- */
+    :-ms-input-placeholder {
+      color: #cacaca;
+      font-family: 'open_sansregular';
+    }
     .search-btn {
       position: absolute;
       height: 100%;
@@ -377,21 +395,21 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
   }
 }
 
-
 //***end top search input**start school lists, filters***
 .sect-school-list {
   background: #fcf9f3;
 }
+
 .city-filter {
   width: 275px;
   display: inline-block;
   .check-list-ul-mp {
     list-style-type: none;
     padding-left: 10px;
-    .check-list-li-mp{
+    .check-list-li-mp {
       padding: 0 0;
     }
-    .ul2{
+    .ul2 {
       padding-left: 27px;
     }
     input[type="checkbox"] {
@@ -427,14 +445,15 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
     }
   }
 }
-.block-school-list{
+
+.block-school-list {
   display: inline-block;
   vertical-align: top;
   width: 640px;
-  ul{
+  ul {
     margin-top: 0;
     padding-left: 21px;
-    li{
+    li {
       list-style-type: none;
       border-bottom: 1px solid #fdddb6;
       padding-bottom: 5px;
@@ -450,7 +469,7 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
 
         }
       }
-      span{
+      span {
         font-size: 14px;
         line-height: 24px;
         color: #666;
@@ -459,62 +478,61 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
   }
 }
 
-
-
 //***end sect-school-list, start sect-map**********
-.sect-map{
-   background: #fcf9f3;
+.sect-map {
+  background: #fcf9f3;
 }
-.block-map{
+
+.block-map {
   display: inline-block;
   margin-left: 200px;
   margin-top: 50px;
   position: relative;
   text-align: center;
-  h2{
+  h2 {
     font-size: 36px;
     line-height: 34px;
     margin-bottom: 8px;
   }
-  a{
+  a {
     font-size: 16px;
     line-height: 34px;
     color: #0b5797;
     border-bottom: 1px solid #0b5797;
   }
-  .map-legend{
+  .map-legend {
     width: 300px;
     position: absolute;
     bottom: 100px;
     right: 20px;
     text-align: left;
-    h3{
+    h3 {
       font-size: 24px;
       line-height: 24px;
       font-family: 'open_sansregular';
       font-weight: 400;
       margin-bottom: 5px;
     }
-    .map-distr{
+    .map-distr {
       margin-bottom: 10px;
     }
-    span{
+    span {
       display: block;
     }
     .meter {
-      height: 10px;  /* Can be anything */
+      height: 10px; /* Can be anything */
       position: relative;
       background: #fdddb6;
-      &:before{
+      &:before {
         content: "0";
         position: absolute;
         top: 8px;
         left: 1px;
-         color: #666666;
+        color: #666666;
       }
-      &:after{
+      &:after {
         content: "11374";
-         position: absolute;
+        position: absolute;
         top: 8px;
         right: 1px;
         color: #666666;
@@ -530,29 +548,23 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
   }
 }
 
-
-
-
 //****end map, start sect-best-schools*/**************
-.sect-best-schools{
+.sect-best-schools {
   border-top: 1px solid #ffe1be;
 
   position: relative;
   padding-bottom: 130px;
 
-
   background: #ffffff;
-  background: -moz-linear-gradient(top,  #ffffff 0%, #fcf9f3 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#fcf9f3));
-  background: -webkit-linear-gradient(top,  #ffffff 0%,#fcf9f3 100%);
-  background: -o-linear-gradient(top,  #ffffff 0%,#fcf9f3 100%);
-  background: -ms-linear-gradient(top,  #ffffff 0%,#fcf9f3 100%);
-  background: linear-gradient(to bottom,  #ffffff 0%,#fcf9f3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcf9f3',GradientType=0 );
+  background: -moz-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #fcf9f3));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #fcf9f3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fcf9f3', GradientType=0);
 
-
-
-  .best-sch-border-top{
+  .best-sch-border-top {
     position: relative;
     top: -23px;
     left: 633px;
@@ -562,17 +574,17 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
     display: inline-block;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcf9f3+0,fcf9f3+49,fcf9f3+49,ffffff+50,ffffff+100,ffffff+100 */
     background: #fcf9f3; /* Old browsers */
-    background: -moz-linear-gradient(top,  #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf9f3), color-stop(49%,#fcf9f3), color-stop(49%,#fcf9f3), color-stop(50%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #fcf9f3 0%,#fcf9f3 49%,#fcf9f3 49%,#ffffff 50%,#ffffff 100%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #fcf9f3 0%,#fcf9f3 49%,#fcf9f3 49%,#ffffff 50%,#ffffff 100%,#ffffff 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #fcf9f3 0%,#fcf9f3 49%,#fcf9f3 49%,#ffffff 50%,#ffffff 100%,#ffffff 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #fcf9f3 0%,#fcf9f3 49%,#fcf9f3 49%,#ffffff 50%,#ffffff 100%,#ffffff 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf9f3', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcf9f3), color-stop(49%, #fcf9f3), color-stop(49%, #fcf9f3), color-stop(50%, #ffffff), color-stop(100%, #ffffff), color-stop(100%, #ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcf9f3', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
 
   }
-  .b-s-headline{
-    h2{
+  .b-s-headline {
+    h2 {
       text-align: center;
       font-size: 36px;
       line-height: 34px;
@@ -581,7 +593,7 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
     }
   }
   //****
-  .block-scores-filter{
+  .block-scores-filter {
     margin-left: -7px;
     margin-right: -7px;
 
@@ -590,10 +602,10 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
       display: inline-block;
       margin: 10px 7px 50px 7px;
       position: relative;
-      &:hover .s-dropdown{
+      &:hover .s-dropdown {
         display: block;
       }
-      p{
+      p {
         font-size: 14px;
         line-height: 34px;
         margin: 13px 5px -3px 0px;
@@ -639,7 +651,7 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
       }
       .s-dropdown {
         display: none;
-        border:  1px solid #ff9d29;
+        border: 1px solid #ff9d29;
         -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
         border-radius: 2px;
@@ -651,18 +663,18 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
           list-style-type: none;
           padding: 0;
           margin: 0 10px 10px 10px;
-          li{
+          li {
             border-bottom: 1px solid #ffe1be;
             padding: 5px 0;
             font-size: 16px;
             line-height: 34px;
             color: #6b6b6b;
-            &:hover{
+            &:hover {
               color: #000000;
               border-bottom: 1px solid #ff9d29;
               cursor: pointer;
             }
-             &:last-child{
+            &:last-child {
               border-bottom: none;
             }
           }
@@ -671,11 +683,12 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
     }
   }
 }
-.block-table-best-school{
-  table{
+
+.block-table-best-school {
+  table {
     width: 817px;
-    td{
-    vertical-align: text-top;
+    td {
+      vertical-align: text-top;
     }
   }
 }
@@ -730,4 +743,10 @@ box-shadow:         0px 40px 80px 0px rgba(148, 108, 61, 0.51);
   }
 }
 
+.region-label {
+  cursor: pointer;
+}
 
+.hidden {
+  display: none;
+}

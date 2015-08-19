@@ -442,7 +442,7 @@ footer {
   background: -o-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
   background: -ms-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
   background: linear-gradient(to bottom, #ffffff 0%, #fcf9f3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcf9f3',GradientType=0 ); }
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fcf9f3', GradientType=0); }
   .sect-best-schools .best-sch-border-top {
     position: relative;
     top: -23px;
@@ -466,7 +466,7 @@ footer {
     /* IE10+ */
     background: linear-gradient(to bottom, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf9f3', endColorstr='#ffffff',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcf9f3', endColorstr='#ffffff', GradientType=0);
     /* IE6-9 */ }
   .sect-best-schools .b-s-headline h2 {
     text-align: center;
@@ -588,5 +588,11 @@ footer {
           line-height: 24px;
           color: #666666;
           display: block; }
+
+.region-label {
+  cursor: pointer; }
+
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

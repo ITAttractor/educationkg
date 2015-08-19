@@ -1,36 +1,39 @@
-var SchoolSearcher = {
-    params: {
-        searchUrl: null,
-        schoolsContainer: null,
-        titleInput: null,
-        regionsInputs: null,
-        districtsInputs: null,
-        paginationLinkSelector: null
-    },
+var SchoolSearcher = function (params) {
+    /**
+     * Example params
+     *
+     * searchUrl: searchUrl - URL для поиска
+     * searchBlockContainer: $('[data-content="search-block"]') - контейнер поиска, изначально скрыт
+     * schoolsContainer: $('[data-content="schools"]') - контейнер школ, куда будет выводиться результат
+     * titleInput: $('input[name="title"]') - поле ввода названия школы
+     * regionsInputs: $('input[name="regions"]') - чекбоксы с регионами
+     * districtsInputs: $('input[name="districts"]') - чекбоксы с районами
+     * paginationLinkSelector: '[data-action="pagination"]' - селектор для ссылки пагинации
+     */
+    this.params = params;
 
-    getDistrictsByRegionId: function (regionId) {
+    this.getDistrictsByRegionId = function (regionId) {
         var selector = '[data-region-id="' + regionId + '"]';
         return this.params.districtsInputs.filter(selector);
-    },
+    };
 
-    getRegionByRegionId: function (regionId) {
+    this.getRegionByRegionId = function (regionId) {
         var selector = '[value="' + regionId + '"]';
         return this.params.regionsInputs.filter(selector);
-    },
+    };
 
-    init: function (params) {
-        $.extend(this.params, params);
+    this.init = function () {
         this.bindTitleInput();
         this.bindDistrictsInputs();
         this.bindRegionsInputs();
         this.bindPaginationLinks();
-    },
+    };
 
-    bindTitleInput: function () {
+    this.bindTitleInput = function () {
         this.params.titleInput.on('input', this.search.bind(this));
-    },
+    };
 
-    bindDistrictsInputs: function () {
+    this.bindDistrictsInputs = function () {
         var $this = this;
         this.params.districtsInputs.on('change', this.search.bind(this));
         this.params.districtsInputs.on('change', function () {
@@ -43,9 +46,9 @@ var SchoolSearcher = {
                 region.prop('checked', false);
             }
         });
-    },
+    };
 
-    bindRegionsInputs: function () {
+    this.bindRegionsInputs = function () {
         var $this = this;
         this.params.regionsInputs.on('change', function () {
             var regionId = $(this).val();
@@ -57,9 +60,9 @@ var SchoolSearcher = {
             }
             $this.search();
         });
-    },
+    };
 
-    bindPaginationLinks: function () {
+    this.bindPaginationLinks = function () {
         var $this = this;
         this.params.schoolsContainer.on('click', this.params.paginationLinkSelector, function (e) {
             e.preventDefault();
@@ -70,33 +73,46 @@ var SchoolSearcher = {
                 }.bind($this)
             });
         });
-    },
+    };
 
-    search: function () {
+    this.search = function () {
         var data = {
             title: this.getTitle(),
             districts: this.getCheckedDistricts()
         };
-        $.ajax(this.params.searchUrl, {
-            data: data,
-            traditional: true,
-            success: function (content) {
-                this.setContent(content);
-            }.bind(this)
-        });
-    },
+        if (data.title) {
+            $.ajax(this.params.searchUrl, {
+                data: data,
+                traditional: true,
+                success: function (content) {
+                    this.showSearchBlock();
+                    this.setContent(content);
+                }.bind(this)
+            });
+        } else {
+            this.hideSearchBlock();
+        }
+    };
 
-    getTitle: function () {
+    this.getTitle = function () {
         return this.params.titleInput.val();
-    },
+    };
 
-    getCheckedDistricts: function () {
+    this.getCheckedDistricts = function () {
         return this.params.districtsInputs.filter(':checked').map(function () {
             return $(this).val();
         }).get();
-    },
+    };
 
-    setContent: function (content) {
+    this.setContent = function (content) {
         this.params.schoolsContainer.html(content);
-    }
+    };
+
+    this.showSearchBlock = function () {
+        this.params.searchBlockContainer.show();
+    };
+
+    this.hideSearchBlock = function () {
+        this.params.searchBlockContainer.hide();
+    };
 };
