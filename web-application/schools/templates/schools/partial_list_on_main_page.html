@@ -3,7 +3,7 @@
     <ul>
         {% for school in schools %}
             <li>
-                <p><a href="#" class="school-name">{{ school.title }}</a></p>
+                <p><a href="#" class="school-name" data-school-id="{{ school.id }}">{{ school.title }}</a></p>
                 <span class="school-adr"><i class="fa fa-map-marker"></i>{{ school.address }}</span>
             </li>
         {% endfor %}
