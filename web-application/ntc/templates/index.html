@@ -105,6 +105,16 @@
                     <span class="map-distr">в Нарынской области</span>
                     <span>~4,57%</span>
                 </div>
+        <div class="block-map overflow-hidden">
+            <h2>50 145 учеников из 11 371 школы</h2>
+            <a href="#">прошли тестирование в НЦТ в 2015 году.</a>
+            {% include 'map.html' %}
+            <div class="map-legend">
+                <div class="map-leg-head">
+                    <h3>521 школа</h3>
+                    <span class="map-distr">в Нарынской области</span>
+                    <span>~4,57%</span>
+                </div>
 
                 <span>от общего количества школ</span>
 
@@ -258,60 +268,19 @@
 
             <div class="input-search-block">
                 <div class="input-search">
-                    <input type="text" placeholder="Фамилия Имя">
+                    <form id="search-result-form">
+                        <input type="text" placeholder="Фамилия Имя">
 
-                    <div class="search-btn">
-                        <button type="submit">Найти</button>
-                    </div>
+                        <div class="search-btn">
+                            <button type="submit">Найти</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="pupil-list">
-                <ul>
-                    <li>
-                        <a href="">Алмазбеков Адилет</a>
-                        <span>Школа-комплекс лицей №13  <i class="fa fa-map-marker"></i>   г. Бишкек, Ленинский район, Московская, 174</span>
 
-                        <div class="popup-person">
-                            <div class="popup-overlay"></div>
-                            <div class="popup-pers-inner">
-                                <h3>Алмазбеков Адилет</h3>
-                                <span>Средняя общеобразовательная школа им. Д. Осмоналиева
-<i class="fa fa-map-marker"></i>Джалал-Абадская область,
-Алабукинский район</span>
-
-                                <p>Результаты тестирования:</p>
-                                <table>
-                                    <tr>
-                                        <th>Предмет</th>
-                                        <th>Количество баллов</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Английский язык</td>
-                                        <td>21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>История</td>
-                                        <td>19</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Математика</td>
-                                        <td>28</td>
-                                    </tr>
-                                </table>
-                                <div class="popup-close"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="">Алмазбеков Адилет</a>
-                        <span>Средняя общеобразовательная школа им. Д. Осмоналиева <i class="fa fa-map-marker"></i> Джалал-Абадская область, Алабукинский район</span>
-                    </li>
-                    <li>
-                        <a href="">Алмазбеков Адилет</a>
-                        <span>Средняя общеобразовательная школа №1  <i class="fa fa-map-marker"></i>  Иссык-Кульская область, Джети-Огузский район</span>
-                    </li>
-                </ul>
             </div>
+            <div class="popup-person"></div>
         </div>
     </section>
 {% endblock %}

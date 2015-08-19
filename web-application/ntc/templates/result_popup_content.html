@@ -1,66 +1,108 @@
 {% load i18n %}
-{{ result.full_name }}
-{% if result.math %}
-    {% trans 'Math' %}
-    {{ result.math }}
-{% endif %}
-{% if result.physics %}
-    {% trans 'Physics' %}
-    {{ result.physics }}
-{% endif %}
-{% if result.chemistry %}
-    {% trans 'Chemistry' %}
-    {{ result.chemistry }}
-{% endif %}
-{% if result.geometry %}
-    {% trans 'Geometry' %}
-    {{ result.geometry }}
-{% endif %}
-{% if result.biology %}
-    {% trans 'Biology' %}
-    {{ result.biology }}
-{% endif %}
-{% if result.geography %}
-    {% trans 'Geography' %}
-    {{ result.geography }}
-{% endif %}
-{% if result.history %}
-    {% trans 'History' %}
-    {{ result.history }}
-{% endif %}
-{% if result.eng_lang %}
-    {% trans 'English language' %}
-    {{ result.eng_lang }}
-{% endif %}
-{% if result.ger_lang %}
-    {% trans 'German language' %}
-    {{ result.ger_lang }}
-{% endif %}
-{% if result.fr_lang %}
-    {% trans 'French language' %}
-    {{ result.fr_lang }}
-{% endif %}
-{% if result.kyr_lang %}
-    {% trans 'Kyrgyz language' %}
-    {{ result.kyr_lang }}
-{% endif %}
-{% if result.rus_lang %}
-    {% trans 'Russian language' %}
-    {{ result.rus_lang }}
-{% endif %}
-{% if result.uzb_lang %}
-    {% trans 'Uzbek language' %}
-    {{ result.uzb_lang }}
-{% endif %}
-{% if result.informatics %}
-    {% trans 'Informatics' %}
-    {{ result.informatics }}
-{% endif %}
-{% if result.civics %}
-    {% trans 'Civics' %}
-    {{ result.informatics }}
-{% endif %}
-{% if result.notes %}
-    {% trans 'Notes' %}
-    <b>{{ result.notes }}</b>
-{% endif %}
+<div class="popup-overlay"></div>
+<div class="popup-pers-inner">
+    <h3>{{ result.full_name.title }}</h3>
+    <span>{{ result.school.title }} | <i class="fa fa-map-marker"></i>{{ result.school.district.region.title }}, {{ result.school.district.title }}</span>
+
+    <p>Результаты тестирования:</p>
+    <table>
+        {% if result.math %}
+            <tr>
+                <td>{% trans 'Math' %}</td>
+                <td>{{ result.math }}</td>
+            </tr>
+        {% endif %}
+        {% if result.physics %}
+            <tr>
+                <td>{% trans 'Physics' %}</td>
+                <td>{{ result.physics }}</td>
+            </tr>
+        {% endif %}
+        {% if result.chemistry %}
+            <tr>
+                <td>{% trans 'Chemistry' %}</td>
+                <td>{{ result.chemistry }}</td>
+            </tr>
+        {% endif %}
+        {% if result.geometry %}
+            <tr>
+                <td>{% trans 'Geometry' %}</td>
+                <td>{{ result.geometry }}</td>
+            </tr>
+        {% endif %}
+        {% if result.biology %}
+            <tr>
+                <td>{% trans 'Biology' %}</td>
+                <td>{{ result.biology }}</td>
+            </tr>
+        {% endif %}
+        {% if result.geography %}
+            <tr>
+                <td>{% trans 'Geography' %}</td>
+                <td>{{ result.geography }}</td>
+            </tr>
+        {% endif %}
+        {% if result.history %}
+            <tr>
+                <td>{% trans 'History' %}</td>
+                <td>{{ result.history }}</td>
+            </tr>
+        {% endif %}
+        {% if result.eng_lang %}
+            <tr>
+                <td>{% trans 'English language' %}</td>
+                <td>{{ result.eng_lang }}</td>
+            </tr>
+        {% endif %}
+        {% if result.ger_lang %}
+            <tr>
+                <td>{% trans 'German language' %}</td>
+                <td>{{ result.ger_lang }}</td>
+            </tr>
+        {% endif %}
+        {% if result.fr_lang %}
+            <tr>
+                <td>{% trans 'French language' %}</td>
+                <td>{{ result.fr_lang }}</td>
+            </tr>
+        {% endif %}
+        {% if result.kyr_lang %}
+            <tr>
+                <td>{% trans 'Kyrgyz language' %}</td>
+                <td>{{ result.kyr_lang }}</td>
+            </tr>
+        {% endif %}
+        {% if result.rus_lang %}
+            <tr>
+                <td>{% trans 'Russian language' %}</td>
+                <td>{{ result.rus_lang }}</td>
+            </tr>
+        {% endif %}
+        {% if result.uzb_lang %}
+            <tr>
+                <td>{% trans 'Uzbek language' %}</td>
+                <td>{{ result.uzb_lang }}</td>
+            </tr>
+        {% endif %}
+        {% if result.informatics %}
+            <tr>
+                <td>{% trans 'Informatics' %}</td>
+                <td>{{ result.informatics }}</td>
+            </tr>
+        {% endif %}
+        {% if result.civics %}
+            <tr>
+                <td>{% trans 'Civics' %}</td>
+                <td>{{ result.informatics }}</td>
+            </tr>
+        {% endif %}
+        {% if result.notes %}
+            <tr>
+                <td>{% trans 'Notes' %}</td>
+                <td><b>{{ result.notes }}</b></td>
+            </tr>
+        {% endif %}
+    </table>
+    <div class="popup-close"></div>
+</div>
+

@@ -1,6 +1,6 @@
 var ChartDrawer = function () {
     var $this = this;
-    this.container = null;
+    this.popupContainer = null;
     this.urlPattern = null;
     var options = {
         scaleOverride: true,
@@ -35,7 +35,7 @@ var ChartDrawer = function () {
     };
 
     this.drawChart = function () {
-        var ctx = $this.container.find("canvas").get(0).getContext("2d");
+        var ctx = $this.popupContainer.find("canvas").get(0).getContext("2d");
         data.labels = chartData.subjects;
         data.datasets[0].data = chartData.country_averages;
         data.datasets[1].data = chartData.school_averages;
@@ -43,7 +43,7 @@ var ChartDrawer = function () {
     };
 
     this.assignDataAndDraw = function (data) {
-        $this.container.html(data);
+        $this.popupContainer.html(data);
         $this.drawChart();
     };
 

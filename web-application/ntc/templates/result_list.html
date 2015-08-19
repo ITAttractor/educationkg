@@ -1,10 +1,9 @@
 {% load i18n %}
-<table>
+<ul>
     {% for ntc in ntc_objects %}
-        <tr>
-            <td><a href="#" class="show-result-link" data-result-id="{{ ntc.id }}">{{ ntc.full_name.title }}</a></td>
-            <td>{{ ntc.school.title }}</td>
-            <td>{{ ntc.school.district.region }} - {{ ntc.school.district }}</td>
-        </tr>
+        <li>
+            <a href="#" class="show-result-link" data-result-id="{{ ntc.id }}">{{ ntc.full_name.title }}</a>
+            <span>{{ ntc.school.title }}  <i class="fa fa-map-marker"></i>{{ ntc.school.district.region }}, {{ ntc.school.district }}, {{ ntc.school.address }}</span>
+        </li>
     {% endfor %}
-</table>
+</ul>

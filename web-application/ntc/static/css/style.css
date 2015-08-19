@@ -148,7 +148,8 @@ footer {
   right: 15px;
   width: 22px;
   height: 23px;
-  background: url("../img/close-icon.png") 0 0 no-repeat; }
+  background: url("../img/close-icon.png") 0 0 no-repeat;
+  cursor: pointer; }
 
 .popup-sch-inner, .popup-pers-inner {
   width: 900px;
@@ -199,6 +200,8 @@ footer {
 
 .popup-person {
   visibility: hidden; }
+  .popup-person.active {
+    visibility: visible; }
   .popup-person .popup-pers-inner {
     height: 500px; }
     .popup-person .popup-pers-inner h3 {
@@ -442,7 +445,7 @@ footer {
   background: -o-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
   background: -ms-linear-gradient(top, #ffffff 0%, #fcf9f3 100%);
   background: linear-gradient(to bottom, #ffffff 0%, #fcf9f3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fcf9f3', GradientType=0); }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcf9f3',GradientType=0 ); }
   .sect-best-schools .best-sch-border-top {
     position: relative;
     top: -23px;
@@ -466,7 +469,7 @@ footer {
     /* IE10+ */
     background: linear-gradient(to bottom, #fcf9f3 0%, #fcf9f3 49%, #fcf9f3 49%, #ffffff 50%, #ffffff 100%, #ffffff 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcf9f3', endColorstr='#ffffff', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf9f3', endColorstr='#ffffff',GradientType=0 );
     /* IE6-9 */ }
   .sect-best-schools .b-s-headline h2 {
     text-align: center;

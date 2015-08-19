@@ -194,6 +194,7 @@ footer {
   width: 22px;
   height: 23px;
   background: url("../img/close-icon.png") 0 0 no-repeat;
+  cursor: pointer;
 }
 
 .popup-sch-inner, .popup-pers-inner {
@@ -257,6 +258,9 @@ footer {
 
 .popup-person {
   visibility: hidden;
+  &.active {
+    visibility: visible;
+  }
   .popup-pers-inner {
     height: 500px;
     h3 {
