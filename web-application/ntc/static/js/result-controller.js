@@ -66,7 +66,7 @@ var ResultController = function () {
             throw "searchResultsContainer was not set"
         }
         $this.initSearchResultForm();
-        $this.initShowResultPopUpLinks()
+        $this.initShowResultPopUpLinks();
         $this.initCloseButton();
     };
 

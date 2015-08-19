@@ -53,22 +53,10 @@
     </section>
     <section class="sect-map">
         <div class="block-map overflow-hidden">
-            <h2>50 145 учеников из 11 371 школы</h2>
-            <a href="#">прошли тестирование в НЦТ в 2015 году.</a>
+            <h2>{{ total_students }} учеников из {{ total_schools }} школ</h2>
+            <a href="http://ntc.kg" target="_blank">прошли тестирование в НЦТ в 2015 году.</a>
             {% include 'map.html' %}
-            <div class="map-legend">
-                <div class="map-leg-head">
-                    <h3>521 школа</h3>
-                    <span class="map-distr">в Нарынской области</span>
-                    <span>~4,57%</span>
-                </div>
-
-                <span>от общего количества школ</span>
-
-                <div class="meter">
-                    <span style="width: 4.57%"></span>
-                </div>
-            </div>
+            <div class="map-legend"></div>
         </div>
     </section>
     <section class="sect-best-schools">

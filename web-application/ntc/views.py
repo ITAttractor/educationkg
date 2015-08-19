@@ -7,6 +7,7 @@ from geo.models import Region
 from ntc.data_integrator import DataIntegrator
 from ntc.data_saver import NTCDataSaver
 from ntc.models import IntegrationQueue, NTC
+from schools.models import School
 
 
 class NTCDataLoadApiView(View):
@@ -33,6 +34,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
+        context['total_schools'] = School.objects.count()
+        context['total_students'] = NTC.objects.count()
         context['regions'] = Region.objects.all()
         return context
 

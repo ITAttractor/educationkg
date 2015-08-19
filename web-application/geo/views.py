@@ -1,8 +1,10 @@
 import json
 from django.http.response import JsonResponse
 from django.shortcuts import render
+from django.utils.translation import ungettext
 from django.views.generic import View
 from geo.models import Region
+from ntc.models import NTC
 from schools.models import School
 
 
@@ -14,8 +16,7 @@ class SchoolDataView(View):
         for region in regions:
             districts = region.district_set.all()
             region_school_count = School.objects.filter(district__in=districts).count()
-            region_data = {"school_count": region_school_count}
-            region_data['title'] = region.title
+            region_data = {"school_count": region_school_count, 'title': region.title, 'case': region.prepositional_case, 'school_case': ungettext("school", "schools", region_school_count)}
             data[region.slug] = region_data
         return JsonResponse(data)
 

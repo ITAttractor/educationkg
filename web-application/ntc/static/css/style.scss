@@ -528,16 +528,14 @@ footer {
       height: 10px; /* Can be anything */
       position: relative;
       background: #fdddb6;
-      &:before {
-        content: "0";
+      &:before{
         position: absolute;
         top: 8px;
         left: 1px;
         color: #666666;
       }
-      &:after {
-        content: "11374";
-        position: absolute;
+      &:after{
+         position: absolute;
         top: 8px;
         right: 1px;
         color: #666666;
