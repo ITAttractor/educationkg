@@ -14,7 +14,8 @@ def user_opens_main_page(step):
 def user_fills_title_input(step, title):
     title_input = world.browser.find_element_by_xpath(Xpath.school_search_title_input)
     title_input.clear()
-    title_input.send_keys(title)
+    for char in title:
+        title_input.send_keys(char)
 
 
 @step(u'пользователь видит в списке следующие школы')
