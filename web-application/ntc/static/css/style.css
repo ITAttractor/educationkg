@@ -199,11 +199,12 @@ footer {
         background: #6b6b6b; }
 
 .popup-person {
-  visibility: hidden; }
+  display: none; }
   .popup-person.active {
-    visibility: visible; }
+    display: block; }
   .popup-person .popup-pers-inner {
-    height: 500px; }
+    height: 500px;
+    position: fixed; }
     .popup-person .popup-pers-inner h3 {
       font-size: 24px;
       line-height: 34px;
@@ -449,7 +450,7 @@ footer {
   .sect-best-schools .best-sch-border-top {
     position: relative;
     top: -23px;
-    left: 633px;
+    left: 47%;
     font-size: 32px;
     padding: 0 20px;
     color: #ff9d29;
@@ -560,7 +561,7 @@ footer {
   .sect-check-result .check-result-border-top {
     position: relative;
     top: -25px;
-    left: 633px;
+    left: 47%;
     font-size: 35px;
     padding: 0 20px;
     color: #ff9d29;
