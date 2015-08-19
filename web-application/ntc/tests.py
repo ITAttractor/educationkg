@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase, Client
+from ntc.average_results_calculator import AverageResultsCalculator
 from ntc.data_integrator import DataIntegrator, Searcher
 from ntc.data_saver import NTCDataSaver
 from ntc.models import ParsedNTC, NTC, IntegrationQueue
@@ -70,7 +71,8 @@ class NTCApiViewTests(TestCase):
         self.json = json_file.read()
 
     def test_data_added(self):
-        response = self.client.post(path='/api/ntc/', data=self.json, content_type="application/json", AUTHORIZATION=settings.API_KEY)
+        response = self.client.post(path='/api/ntc/', data=self.json, content_type="application/json",
+                                    AUTHORIZATION=settings.API_KEY)
 
         actual_status_code = response.status_code
         expected_status_code = 200
@@ -171,3 +173,28 @@ class DataIntegratorTests(TestCase):
             has_error = True
 
         self.assertTrue(has_error)
+
+
+class AverageResultsCalculatorTests(TestCase):
+    fixtures = ['geo.json', 'schools.json', 'ntc.json']
+
+    def setUp(self):
+        school = School.objects.get(pk=74)
+        self.calculator = AverageResultsCalculator(school)
+
+    def test_calculate(self):
+        actual = self.calculator.calculate()
+
+        actual_school_averages = actual.get_school_averages()
+        actual_country_averages = actual.get_country_averages()
+        actual_subjects = actual.get_subjects()
+
+        expected_school_averages = [17.0, 13.833333333333334, 17.904761904761905, 14.5, 17.818181818181817, 4.0, 14.0, 16.5625]
+        expected_country_averages = [19.048648648648648, 17.52317880794702, 17.5203488372093, 13.301587301587302, 19.442477876106196, 8.947368421052632, 17.273224043715846, 20.594543744120415]
+        expected_subjects = ["Kyrgyz language", "Biology", "Russian language", "Geography", "Chemistry", "Physics",
+                             "English language", "History"]
+
+        self.assertEqual(actual_school_averages, expected_school_averages, 4)
+        self.assertEqual(actual_country_averages, expected_country_averages, 4)
+        self.assertEqual(actual_subjects, expected_subjects)
+
