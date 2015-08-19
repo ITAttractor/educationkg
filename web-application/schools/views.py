@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from ntc.average_results_calculator import AverageResultsCalculator
+from ntc.models import NTC
 from schools.models import School
 
 
@@ -26,7 +27,7 @@ class SchoolSearchView(ListView):
 
 
 class SchoolInfoAndResultsView(TemplateView):
-    template_name = 'school_info_popup.html'
+    template_name = 'school_info_popup_content.html'
 
     def get_context_data(self, **kwargs):
         context = super(SchoolInfoAndResultsView, self).get_context_data(**kwargs)
@@ -35,6 +36,8 @@ class SchoolInfoAndResultsView(TemplateView):
 
         calculator = AverageResultsCalculator(school)
         result = calculator.calculate()
+        context['school'] = school
+        context['students_count'] = NTC.objects.filter(school=school).count()
         context['school_averages'] = result.get_school_averages()
         context['country_averages'] = result.get_country_averages()
         context['subjects'] = json.dumps(result.get_subjects())

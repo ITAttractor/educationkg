@@ -22,7 +22,8 @@
                     <ul class="check-list-ul-mp">
                         {% for region in regions %}
                             <li class="check-list-li-mp">
-                                <input type="checkbox" id="region-{{ region.pk }}" name="regions" value="{{ region.pk }}">
+                                <input type="checkbox" id="region-{{ region.pk }}" name="regions"
+                                       value="{{ region.pk }}">
                                 <label for="region-{{ region.pk }}">
                                     <span>
                                     <i class="fa fa-square-o"></i>
@@ -33,7 +34,9 @@
                                 <ul class="check-list-ul-mp ul2 hidden" data-content="districts">
                                     {% for district in region.district_set.all %}
                                         <li class="check-list-li-mp">
-                                            <input type="checkbox" data-region-id="{{ region.pk }}" id="district-{{ district.pk }}" name="districts" value="{{ district.pk }}">
+                                            <input type="checkbox" data-region-id="{{ region.pk }}"
+                                                   id="district-{{ district.pk }}" name="districts"
+                                                   value="{{ district.pk }}">
                                             <label for="district-{{ district.pk }}">
 							                <span>
 	                                            <i class="fa fa-square-o"></i>
@@ -49,6 +52,7 @@
                 </div>
             </div>
             <div data-content="schools" class="block-school-list"></div>
+            <div class="popup-school"></div>
         </div>
     </section>
     <section class="sect-map">
@@ -235,7 +239,7 @@
         }).init();
 
         $('.region-label').click(function () {
-            $(this).siblings('[data-content="districts"]').toggle();
+            $(this).siblings('[data-content="districts"]').slideToggle();
         });
     </script>
 {% endblock %}

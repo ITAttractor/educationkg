@@ -168,7 +168,9 @@ footer {
     font-size: 16px !important; }
 
 .popup-school {
-  visibility: hidden; }
+  display: none; }
+  .popup-school.active {
+    display: block; }
   .popup-school .popup-sch-inner {
     height: 480px; }
     .popup-school .popup-sch-inner h3 {
@@ -179,11 +181,12 @@ footer {
       font-weight: 400;
       margin-bottom: 0;
       margin-top: 0; }
+    .popup-school .popup-sch-inner span {
+      color: #666; }
     .popup-school .popup-sch-inner p {
       margin-top: 28px;
       margin-bottom: -1px; }
     .popup-school .popup-sch-inner canvas {
-      background: red;
       margin: 9px 0; }
     .popup-school .popup-sch-inner .canvas-legend {
       text-align: center; }
@@ -217,7 +220,8 @@ footer {
     .popup-person .popup-pers-inner span {
       font-size: 16px !important;
       line-height: 26px !important;
-      padding-right: 200px !important; }
+      padding-right: 200px !important;
+      color: #666; }
     .popup-person .popup-pers-inner table {
       width: 780px;
       margin-left: 50px; }

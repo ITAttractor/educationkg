@@ -216,7 +216,10 @@ footer {
 }
 
 .popup-school {
-  visibility: hidden;
+  display: none;
+  &.active {
+    display: block;
+  }
   .popup-sch-inner {
     height: 480px;
     h3 {
@@ -228,12 +231,14 @@ footer {
       margin-bottom: 0;
       margin-top: 0;
     }
+    span {
+      color: #666;
+    }
     p {
       margin-top: 28px;
       margin-bottom: -1px;
     }
     canvas {
-      background: red;
       margin: 9px 0;
     }
     .canvas-legend {
@@ -279,6 +284,7 @@ footer {
       font-size: 16px !important;
       line-height: 26px !important;
       padding-right: 200px !important;
+      color: #666;
     }
     table {
       width: 780px;

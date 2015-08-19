@@ -1,0 +1,29 @@
+{% load i18n %}
+<script>
+    var chartData = {
+        school_averages: {{ school_averages }},
+        country_averages: {{ country_averages }},
+        subjects: {{ subjects | safe }}
+
+    };
+</script>
+<div class="popup-overlay"></div>
+<div class="popup-sch-inner">
+    <h3>{{ school.title }}</h3>
+    <span>
+        <i class="fa fa-map-marker"></i> {{ school.district.region }}, {{ school.district }}, {{ school.address }}
+        <i class="fa fa-phone"></i> {{ school.phone }}
+    </span>
+
+    <p>{% trans 'Average NTC results for school' %}:</p>
+    <span>(сдавало {{ students_count }} ученика)</span>
+    <canvas width="850" height="300"></canvas>
+    <div class="canvas-legend">
+        <div class="canv-orange"></div>
+        <span>{% trans 'Average mark for school' %}</span>
+
+        <div class="canv-gray"></div>
+        <span>{% trans 'Average mark for country' %}</span>
+    </div>
+    <div class="popup-close"></div>
+</div>

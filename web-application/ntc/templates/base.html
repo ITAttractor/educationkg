@@ -73,12 +73,11 @@
         schoolGeo.init();
 
         var chartDrawer = new ChartDrawer();
-        chartDrawer.popupContainer = $("#chart-result");
+        chartDrawer.popupContainer = $(".popup-school");
         chartDrawer.urlPattern = urls.schoolChartData;
         chartDrawer.initLinks();
+        chartDrawer.initCloseButton();
     });
-
-
 </script>
 {% block js %}
 {% endblock %}

@@ -8,7 +8,8 @@ var ChartDrawer = function () {
         scaleStepWidth: 6,
         scaleFontSize: 10,
         barShowStroke: false,
-        barValueSpacing: 20
+        barValueSpacing: 20,
+        responsive: false
     };
 
     var data = {
@@ -42,9 +43,20 @@ var ChartDrawer = function () {
         new Chart(ctx).Bar(data, options)
     };
 
+    this.showPopupAndDrawChart = function () {
+        $this.popupContainer.addClass('active');
+        $this.drawChart();
+    };
+
     this.assignDataAndDraw = function (data) {
         $this.popupContainer.html(data);
-        $this.drawChart();
+        $this.showPopupAndDrawChart();
+    };
+
+    this.initCloseButton = function() {
+        $($this.popupContainer).on("click", '.popup-close', function() {
+            $this.popupContainer.removeClass('active');
+        })
     };
 
     this.loadChartDataForSchool = function (schoolId) {
@@ -56,10 +68,11 @@ var ChartDrawer = function () {
         })
     };
 
-    this.initLinks = function() {
-        $(".school-link").on("click", function(event) {
+    this.initLinks = function () {
+        $(".block-school-list").on("click", ".school-name", function (event) {
             event.preventDefault();
-            var schoolId = $(this).data("school-id")
+            var schoolId = $(this).data("school-id");
+            console.log(schoolId);
             $this.loadChartDataForSchool(schoolId)
         })
     };
