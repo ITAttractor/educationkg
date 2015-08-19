@@ -305,50 +305,42 @@ footer {
   margin: 0 17%;
   .input-search {
     width: 620px;
-    border: 2px solid #ff9d29;
+    border-top: 2px solid #ff9d29;
+    border-right: none;
+    border-bottom: 2px solid #ff9d29;
+    border-left: 2px solid #ff9d29;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-
+    padding: 12px 5px;
     background: #ffffff;
     -webkit-box-shadow: inset 7px 7px 10px 0px rgba(89, 56, 16, 0.08);
     -moz-box-shadow: inset 7px 7px 10px 0px rgba(89, 56, 16, 0.08);
     box-shadow: inset 7px 7px 10px 0px rgba(89, 56, 16, 0.08);
     position: relative;
+    overflow: hidden;
     input {
       border: 0;
       outline: none;
       width: 75%;
       margin-left: 15px;
-      font-size: 24px;
       line-height: 24px;
+      font-size: 24px;
+
       background: transparent;
-      padding: 10px 5px;
+
     }
-    ::-webkit-input-placeholder {
-      color: #cacaca;
-      font-family: 'open_sansregular';
-    }
-    ::-moz-placeholder {
-      color: #cacaca;
-      font-family: 'open_sansregular';
-    }
-    /* Firefox 19+ */
-    :-moz-placeholder {
-      color: #cacaca;
-      font-family: 'open_sansregular';
-    }
-    /* Firefox 18- */
-    :-ms-input-placeholder {
-      color: #cacaca;
-      font-family: 'open_sansregular';
-    }
+    ::-webkit-input-placeholder {color:#cacaca; font-family: 'open_sansregular'; }
+      ::-moz-placeholder          {color:#cacaca; font-family: 'open_sansregular';}/* Firefox 19+ */
+      :-moz-placeholder           {color:#cacaca; font-family: 'open_sansregular';}/* Firefox 18- */
+      :-ms-input-placeholder      {color:#cacaca; font-family: 'open_sansregular';}
     .search-btn {
       position: absolute;
       height: 100%;
       top: 0;
       right: 0;
       background: #ff9d29;
+
       -webkit-border-top-right-radius: 100px;
       -webkit-border-bottom-right-radius: 100px;
       -moz-border-radius-topright: 100px;
@@ -358,13 +350,19 @@ footer {
       cursor: pointer;
       &::before {
         content: "";
-        position: relative;
-        top: -22px;
-        left: -28px;
-        border-style: solid;
-        border-width: 0 0 49px 28px;
-        border-color: transparent transparent #ff9f29 transparent;
+        position: absolute;
+        top: 0px;
+        left: -19px;
+        width: 40px;
+        height: 55px;
+        background: #ff9d29;
+        transform: skew(-35deg, 0deg) ;
+        -webkit-transform: skew(-35deg, 0deg) ;
+        -moz-transform: skew(-35deg, 0deg) ;
+        -o-transform: skew(-35deg, 0deg) ;
+        -ms-transform: skew(-35deg, 0deg) ;
       }
+
 
       button {
         background: transparent;
@@ -375,9 +373,9 @@ footer {
         font-family: 'open_sansbold';
         vertical-align: baseline;
         position: relative;
-        top: -9px;
-        left: 11px;
-        padding: 0px 6px 0px 0px;
+        top: 13px;
+        left: -2px;
+        padding: 0px 21px 0px 13px;
         cursor: pointer;
       }
     }

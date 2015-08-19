@@ -234,15 +234,20 @@ footer {
   margin: 0 17%; }
   .input-search-block .input-search {
     width: 620px;
-    border: 2px solid #ff9d29;
+    border-top: 2px solid #ff9d29;
+    border-right: none;
+    border-bottom: 2px solid #ff9d29;
+    border-left: 2px solid #ff9d29;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
+    padding: 12px 5px;
     background: #ffffff;
     -webkit-box-shadow: inset 7px 7px 10px 0px rgba(89, 56, 16, 0.08);
     -moz-box-shadow: inset 7px 7px 10px 0px rgba(89, 56, 16, 0.08);
     box-shadow: inset 7px 7px 10px 0px rgba(89, 56, 16, 0.08);
     position: relative;
+    overflow: hidden;
     /* Firefox 19+ */
     /* Firefox 18- */ }
     .input-search-block .input-search input {
@@ -250,10 +255,9 @@ footer {
       outline: none;
       width: 75%;
       margin-left: 15px;
-      font-size: 24px;
       line-height: 24px;
-      background: transparent;
-      padding: 10px 5px; }
+      font-size: 24px;
+      background: transparent; }
     .input-search-block .input-search ::-webkit-input-placeholder {
       color: #cacaca;
       font-family: 'open_sansregular'; }
@@ -281,12 +285,17 @@ footer {
       cursor: pointer; }
       .input-search-block .input-search .search-btn::before {
         content: "";
-        position: relative;
-        top: -22px;
-        left: -28px;
-        border-style: solid;
-        border-width: 0 0 49px 28px;
-        border-color: transparent transparent #ff9f29 transparent; }
+        position: absolute;
+        top: 0px;
+        left: -19px;
+        width: 40px;
+        height: 55px;
+        background: #ff9d29;
+        transform: skew(-35deg, 0deg);
+        -webkit-transform: skew(-35deg, 0deg);
+        -moz-transform: skew(-35deg, 0deg);
+        -o-transform: skew(-35deg, 0deg);
+        -ms-transform: skew(-35deg, 0deg); }
       .input-search-block .input-search .search-btn button {
         background: transparent;
         border: 0;
@@ -296,9 +305,9 @@ footer {
         font-family: 'open_sansbold';
         vertical-align: baseline;
         position: relative;
-        top: -9px;
-        left: 11px;
-        padding: 0px 6px 0px 0px;
+        top: 13px;
+        left: -2px;
+        padding: 0px 21px 0px 13px;
         cursor: pointer; }
 
 .search-school {
