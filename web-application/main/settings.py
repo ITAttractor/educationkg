@@ -41,7 +41,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'geo',
     'schools',
-    'ntc'
+    'ntc',
+    'django_extensions',
+    'lettuce.django'
 )
 
 MIDDLEWARE_CLASSES = (
