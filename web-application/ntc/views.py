@@ -43,7 +43,8 @@ class SearchResultView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(SearchResultView, self).get_context_data(**kwargs)
         full_name = kwargs.pop("full_name")
-        context['ntc_objects'] = NTC.objects.filter(full_name__istartswith=full_name)
+        if full_name:
+            context['ntc_objects'] = NTC.objects.filter(full_name__istartswith=full_name)
         return context
 
 

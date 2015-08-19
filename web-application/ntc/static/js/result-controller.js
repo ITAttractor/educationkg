@@ -2,13 +2,16 @@ var ResultController = function () {
     var $this = this;
     this.searchResultsUrl = null;
     this.getResultUrl = null;
+    this.popupContainer = null;
+    this.searchResultsContainer = null;
 
     this.showResultList = function (data) {
-        $("#result-container").html(data);
+        $this.searchResultsContainer.html(data);
     };
 
     this.showPopUpWithResult = function (data) {
-        $("#result-container").html(data);
+        $this.popupContainer.html(data);
+        $this.popupContainer.addClass("active");
     };
 
     this.searchResult = function (searchString) {
@@ -28,15 +31,21 @@ var ResultController = function () {
     };
 
     this.initSearchResultForm = function () {
-        $("#result-form").on('submit', function (event) {
+        $("#search-result-form").on('submit', function (event) {
             event.preventDefault();
             var searchString = $(this).find("input").val();
             $this.searchResult(searchString);
         });
     };
 
+    this.initCloseButton = function() {
+        $this.popupContainer.on("click", ".popup-close", function() {
+            $this.popupContainer.removeClass('active');
+        })
+    };
+
     this.initShowResultPopUpLinks = function () {
-        $("#result-container").on("click", ".show-result-link", function (event) {
+        $this.searchResultsContainer.on("click", ".show-result-link", function (event) {
             event.preventDefault();
             var resultId = $(this).data("result-id");
             $this.getResult(resultId)
@@ -45,13 +54,20 @@ var ResultController = function () {
 
     this.init = function () {
         if (!$this.searchResultsUrl) {
-            throw "searchResultsUrl not set"
+            throw "searchResultsUrl was not set"
         }
         if (!$this.getResultUrl) {
-            throw "getResultUrl not set"
+            throw "getResultUrl was not set"
+        }
+        if (!$this.popupContainer) {
+            throw "popupContainer was not set"
+        }
+        if (!$this.searchResultsContainer) {
+            throw "searchResultsContainer was not set"
         }
         $this.initSearchResultForm();
         $this.initShowResultPopUpLinks()
+        $this.initCloseButton();
     };
 
 };
