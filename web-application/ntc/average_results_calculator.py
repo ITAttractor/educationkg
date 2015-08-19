@@ -50,7 +50,7 @@ class AverageResultsCalculator(object):
         self.average_results_for_country = None
         self.calculated_averages = CalculatedAverages()
 
-    def calculate_averages(self, objects):
+    def _calculate_averages(self, objects):
         return objects.aggregate(
             math=Avg(MATH),
             physics=Avg(PHYSICS),
@@ -69,23 +69,23 @@ class AverageResultsCalculator(object):
             civics=Avg(CIVICS)
         )
 
-    def calculate_averages_for_country(self):
+    def _calculate_averages_for_country(self):
         all_ntc_objects = NTC.objects.all()
-        self.average_results_for_country = self.calculate_averages(all_ntc_objects)
+        self.average_results_for_country = self._calculate_averages(all_ntc_objects)
 
-    def calculate_averages_for_school(self):
+    def _calculate_averages_for_school(self):
         school_ntc_objects = NTC.objects.filter(school=self.school)
-        self.average_results_for_school = self.calculate_averages(school_ntc_objects)
+        self.average_results_for_school = self._calculate_averages(school_ntc_objects)
 
     def calculate(self):
-        self.calculate_averages_for_country()
-        self.calculate_averages_for_school()
+        self._calculate_averages_for_country()
+        self._calculate_averages_for_school()
 
-        self.prepare_results()
+        self._prepare_results()
 
         return self.calculated_averages
 
-    def prepare_results(self):
+    def _prepare_results(self):
         for key, value in self.average_results_for_school.items():
             if value:
                 subject = unicode(NTC._meta.get_field_by_name(key)[0].verbose_name)
@@ -93,9 +93,9 @@ class AverageResultsCalculator(object):
                 self.calculated_averages.add_school_average(value)
                 self.calculated_averages.add_country_average(self.average_results_for_country[key])
 
-    def get_average_results_for_school(self):
+    def _get_average_results_for_school(self):
         return self.average_results_for_school
 
-    def get_average_results_for_country(self):
+    def _get_average_results_for_country(self):
         return self.average_results_for_school
 
