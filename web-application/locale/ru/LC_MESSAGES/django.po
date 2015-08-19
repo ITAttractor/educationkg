@@ -19,6 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+msgid "School"
+msgid_plural "Schools"
+msgstr[0] "Школа"
+msgstr[1] "Школы"
+msgstr[2] "Школ"
+
 #: geo/models.py:6 geo/models.py:14
 msgid "Title"
 msgstr "Название"
