@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-19 14:54+0600\n"
+"POT-Creation-Date: 2015-08-20 03:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,87 +19,101 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#: geo/models.py:6 geo/models.py:15
+msgid "Title"
+msgstr "Название"
+
+#: geo/views.py:19
 msgid "school"
 msgid_plural "schools"
 msgstr[0] "школа"
 msgstr[1] "школы"
 msgstr[2] "школ"
 
-#: geo/models.py:6 geo/models.py:14
-msgid "Title"
-msgstr "Название"
-
-#: ntc/models.py:43 ntc/templates/result_popup_content.html:4
+#: ntc/models.py:43 ntc/templates/result_popup_content.html:11
 msgid "Math"
 msgstr "Математика"
 
-#: ntc/models.py:44 ntc/templates/result_popup_content.html:8
+#: ntc/models.py:44 ntc/templates/result_popup_content.html:17
 msgid "Physics"
 msgstr "Физика"
 
-#: ntc/models.py:45 ntc/templates/result_popup_content.html:12
+#: ntc/models.py:45 ntc/templates/result_popup_content.html:23
 msgid "Chemistry"
 msgstr "Химия"
 
-#: ntc/models.py:46 ntc/templates/result_popup_content.html:16
+#: ntc/models.py:46 ntc/templates/result_popup_content.html:29
 msgid "Geometry"
 msgstr "Геометрия"
 
-#: ntc/models.py:47 ntc/templates/result_popup_content.html:20
+#: ntc/models.py:47 ntc/templates/result_popup_content.html:35
 msgid "Biology"
 msgstr "Биология"
 
-#: ntc/models.py:48 ntc/templates/result_popup_content.html:24
+#: ntc/models.py:48 ntc/templates/result_popup_content.html:41
 msgid "Geography"
 msgstr "География"
 
-#: ntc/models.py:49 ntc/templates/result_popup_content.html:28
+#: ntc/models.py:49 ntc/templates/result_popup_content.html:47
 msgid "History"
 msgstr "История"
 
-#: ntc/models.py:50 ntc/templates/result_popup_content.html:32
+#: ntc/models.py:50 ntc/templates/result_popup_content.html:53
 msgid "English language"
 msgstr "Английский язык"
 
-#: ntc/models.py:51 ntc/templates/result_popup_content.html:36
+#: ntc/models.py:51 ntc/templates/result_popup_content.html:59
 msgid "German language"
 msgstr "Немецкий язык"
 
-#: ntc/models.py:52 ntc/templates/result_popup_content.html:40
+#: ntc/models.py:52 ntc/templates/result_popup_content.html:65
 msgid "French language"
 msgstr "Французский язык"
 
-#: ntc/models.py:53 ntc/templates/result_popup_content.html:44
+#: ntc/models.py:53 ntc/templates/result_popup_content.html:71
 msgid "Kyrgyz language"
 msgstr "Кыргызский язык"
 
-#: ntc/models.py:54 ntc/templates/result_popup_content.html:48
+#: ntc/models.py:54 ntc/templates/result_popup_content.html:77
 msgid "Russian language"
 msgstr "Русский язык"
 
-#: ntc/models.py:55 ntc/templates/result_popup_content.html:52
+#: ntc/models.py:55 ntc/templates/result_popup_content.html:83
 msgid "Uzbek language"
 msgstr "Узбекский язык"
 
-#: ntc/models.py:56 ntc/templates/result_popup_content.html:56
+#: ntc/models.py:56 ntc/templates/result_popup_content.html:89
 msgid "Informatics"
 msgstr "Информатика"
 
-#: ntc/models.py:57 ntc/templates/result_popup_content.html:60
+#: ntc/models.py:57 ntc/templates/result_popup_content.html:95
 msgid "Civics"
 msgstr "Граждановедение"
 
-#: ntc/models.py:58 ntc/templates/result_popup_content.html:64
+#: ntc/models.py:58 ntc/templates/result_popup_content.html:101
 msgid "Notes"
 msgstr "Примечания"
+
+#: ntc/templates/base.html:34 ntc/templates/index.html:11
+#: ntc/templates/index.html.py:214
+msgid "Search"
+msgstr "Найти"
+
+#: ntc/templates/base.html:35
+msgid "Schools by region"
+msgstr "Школы по регионам"
+
+#: ntc/templates/base.html:36
+msgid "Best schools"
+msgstr "Лучшие школы"
+
+#: ntc/templates/base.html:37
+msgid "Check result"
+msgstr "Проверить результат"
 
 #: ntc/templates/index.html:8
 msgid "School title"
 msgstr "Название школы"
-
-#: ntc/templates/index.html:11
-msgid "Search"
-msgstr "Найти"
 
 #: ntc/templates/index.html:14
 msgid "Example"
@@ -108,6 +122,40 @@ msgstr "Например"
 #: ntc/templates/index.html:14
 msgid "Gymnasium-complex #70"
 msgstr "Гимназия-комплекс №70"
+
+#: ntc/templates/index.html:60
+#, python-format
+msgid "%(total_students)s students"
+msgstr "%(total_students)s учеников"
+
+#: ntc/templates/index.html:60
+msgid "from"
+msgstr "из"
+
+#: ntc/templates/index.html:60
+#, python-format
+msgid "%(total_schools)s schools"
+msgstr "%(total_schools)s школ"
+
+#: ntc/templates/index.html:61
+msgid "are tested at NTC in 2015 year"
+msgstr ""
+
+#: ntc/templates/index.html:211
+msgid "Full name"
+msgstr "Фамилия Имя"
+
+#: schools/templates/school_info_popup_content.html:18
+msgid "Average NTC results for school"
+msgstr "Средние результаты НЦТ для школы"
+
+#: schools/templates/school_info_popup_content.html:23
+msgid "Average mark for school"
+msgstr "Средняя оценка для школы"
+
+#: schools/templates/school_info_popup_content.html:26
+msgid "Average mark for country"
+msgstr "Средняя оценка для страны"
 
 #: schools/templates/schools/partial_list_on_main_page.html:12
 msgid "Search has no results"

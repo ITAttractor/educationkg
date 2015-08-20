@@ -57,8 +57,8 @@
     </section>
     <section class="sect-map">
         <div class="block-map overflow-hidden">
-            <h2>{{ total_students }} учеников из {{ total_schools }} школ</h2>
-            <a href="http://ntc.kg" target="_blank">прошли тестирование в НЦТ в 2015 году.</a>
+            <h2>{% blocktrans %}{{ total_students }} students{% endblocktrans %} {% trans 'from' %} {% blocktrans %}{{ total_schools }} schools{% endblocktrans %}</h2>
+            <a href="http://ntc.kg" target="_blank">{% trans 'are tested at NTC in 2015 year' %}.</a>
             {% include 'map.html' %}
             <div class="map-legend"></div>
         </div>
@@ -208,10 +208,10 @@
             <div class="input-search-block">
                 <div class="input-search">
                     <form id="search-result-form">
-                        <input type="text" placeholder="Фамилия Имя">
+                        <input type="text" placeholder="{% trans 'Full name' %}">
 
                         <div class="search-btn">
-                            <button type="submit">Найти</button>
+                            <button type="submit">{% trans 'Search' %}</button>
                         </div>
                     </form>
                 </div>

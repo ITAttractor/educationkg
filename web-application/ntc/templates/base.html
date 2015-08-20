@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +31,10 @@
             </p>
         </div>
         <div class="main-menu">
-            <span><a href="#">Поиск </a></span>
-            <span><a href="#">Школы по регионам</a></span>
-            <span><a href="#">Лучшие школы</a></span>
-            <span><a href="#">Проверить результат</a></span>
+            <span><a href="#">{% trans 'Search' %}</a></span>
+            <span><a href="#">{% trans 'Schools by region' %}</a></span>
+            <span><a href="#">{% trans 'Best schools' %}</a></span>
+            <span><a href="#">{% trans 'Check result' %}</a></span>
         </div>
     </div>
 </div>
