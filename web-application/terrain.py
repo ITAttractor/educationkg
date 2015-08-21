@@ -7,7 +7,7 @@ from selenium import webdriver
 
 
 def reinitialize_db():
-    fixtures = ['geo', 'schools']
+    fixtures = ['geo', 'schools', 'ntc']
     call_command('reset_db', interactive=False, verbosity=1)
     call_command('migrate', interactive=False, verbosity=1)
     for fixture in fixtures:

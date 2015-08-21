@@ -1,11 +1,14 @@
 {% load i18n %}
 <table>
     {% if schools %}
+        <thead>
         <tr>
             <th>{% trans 'Place' %}</th>
             <th>{% trans 'School' %}</th>
             <th>{% trans 'Average result' %}</th>
         </tr>
+        </thead>
+        <tbody>
         {% for school in schools %}
             {% if school.avg %}
                 <tr>
@@ -16,6 +19,9 @@
             {% endif %}
         {% endfor %}
     {% else %}
-        <tr><td colspan="3" style="text-align: center">{% trans "No results for district or subject" %}</td></tr>
+        <tr>
+            <td colspan="3" style="text-align: center">{% trans "No results for district or subject" %}</td>
+        </tr>
     {% endif %}
+    </tbody>
 </table>
