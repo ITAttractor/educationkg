@@ -72,7 +72,6 @@ var ChartDrawer = function () {
         $(".block-school-list").on("click", ".school-name", function (event) {
             event.preventDefault();
             var schoolId = $(this).data("school-id");
-            console.log(schoolId);
             $this.loadChartDataForSchool(schoolId)
         })
     };

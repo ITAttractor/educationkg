@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles i18n %}
 {% block content %}
-    <section class="search-school">
+    <section id="search-school" class="search-school">
         <div class="container">
             <div class="input-search-block">
                 <div class="input-search">
@@ -16,6 +16,7 @@
         </div>
     </section>
     <section class="sect-school-list">
+    <div class="popup-school"></div>
         <div class="container hidden" data-content="search-block">
             <div class="city-filter">
                 <div class="checkbox-group-mp">
@@ -52,10 +53,9 @@
                 </div>
             </div>
             <div data-content="schools" class="block-school-list"></div>
-            <div class="popup-school"></div>
         </div>
     </section>
-    <section class="sect-map">
+    <section class="sect-map" id="map">
         <div class="block-map overflow-hidden">
             <h2>{% blocktrans %}{{ total_students }} students{% endblocktrans %} {% trans 'from' %} {% blocktrans %}{{ total_schools }} schools{% endblocktrans %}</h2>
             <a href="http://ntc.kg" target="_blank">{% trans 'are tested at NTC in 2015 year' %}.</a>
@@ -63,39 +63,40 @@
             <div class="map-legend"></div>
         </div>
     </section>
-    <section class="sect-best-schools">
+    <section class="sect-best-schools" id="best-schools">
         <div class="best-sch-border-top">
             <i class="fa fa-trophy"></i>
         </div>
         <div class="container">
 
             <div class="b-s-headline">
-                <h2>Лучшие школы</h2>
+                <h2>{% trans 'Best schools' %}</h2>
             </div>
             <div class="block-scores-filter">
                 <div class="city s-filter">
-                    <p>Выберите регион</p>
+                    <p>{% trans 'Select region' %}</p>
 
                     <div class="select-box">
-                        <span>qwerty</span>
+                        <span id="selected-region" data-region-id="{{ regions.0.id }}">{{ regions.0.title }}</span>
 
                         <div class="s-angle">
                             <span><i class="fa fa-angle-down"></i></span>
                         </div>
                     </div>
                     <div class="s-dropdown">
-                        <ul>
-                            <li>qwerty</li>
-                            <li>qwerty</li>
-                            <li>qwerty</li>
-                            <li>qwerty</li>
+                        <ul id="region-select">
+                            {% for region in regions %}
+                                <li data-region-id="{{ region.id }}">{{ region.title }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
 
                 </div>
                 <div class="district s-filter">
+                    <p>{% trans 'Select district' %}</p>
+
                     <div class="select-box">
-                        <span>qazwsx</span>
+                        <span id='selected-district' data-district-id="{{ default_districts.0.id }}">{{ default_districts.0.title }}</span>
 
                         <div class="s-angle">
                             <span><i class="fa fa-angle-down"></i></span>
@@ -103,107 +104,44 @@
                     </div>
 
                     <div class="s-dropdown">
-                        <ul>
-                            <li>qazwsx</li>
-                            <li>qazwsx</li>
-                            <li>qazwsx</li>
-                            <li>qazwsx</li>
+                        <ul id="district-select">
+                            {% for district in default_districts %}
+                                <li data-district-id="{{ district.id }}">{{ district.title }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
 
                 </div>
                 <div class="object s-filter">
-                    <p>Выберите предмет</p>
+                    <p>{% trans 'Select subject' %}</p>
 
                     <div class="select-box">
-                        <span>wsxqaz</span>
+                        <span id="selected-subject" data-subject-key="{{ subjects.iterkeys.next }}">{{ subjects.itervalues.next }}</span>
 
                         <div class="s-angle">
                             <span><i class="fa fa-angle-down"></i></span>
                         </div>
                     </div>
                     <div class="s-dropdown">
-                        <ul>
-                            <li>wsxqaz</li>
-                            <li>wsxqaz</li>
-                            <li>wsxqaz</li>
-                            <li>wsxqaz</li>
+                        <ul id="subject-select">
+                            {% for key, value in subjects.items %}
+                            <li data-subject-key="{{ key }}">{{ value }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
 
                 </div>
             </div>
-            <div class="block-table-best-school">
-                <table>
-                    <tr>
-                        <th>Место</th>
-                        <th>Школа</th>
-                        <th>Средний балл</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="#">Учебный комплекс,
-                            авторская физико-математическая школа-лицей №61</a>
-                        </td>
-                        <td>23.0000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="#">Средняя общеобразовательная школа - лицей №75</a></td>
-                        <td>20.0000</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><a href="#">Гимназия-комплекс №70</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><a href="#">Средняя общеобразовательная школа - лицей №75</a></td>
-                        <td>20.0000</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><a href="#">Гимназия-комплекс №70</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><a href="#">Учебный комплекс,
-                            авторская физико-математическаяшкола-лицей №61</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><a href="#">Гимназия-комплекс №70</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td><a href="#">Гимназия-комплекс №70</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td><a href="#">Гимназия-комплекс №70</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td><a href="#">Гимназия-комплекс №70</a></td>
-                        <td>19.6667</td>
-                    </tr>
-                </table>
-            </div>
+            <div class="block-table-best-school"></div>
 
         </div>
     </section>
-    <section class="sect-check-result">
+    <section class="sect-check-result" id="check-result">
         <div class="check-result-border-top">
             <i class="fa fa-check-circle"></i>
         </div>
         <div class="container">
-            <h2>Проверить результат</h2>
+            <h2>{% trans 'Check result' %}</h2>
 
             <div class="input-search-block">
                 <div class="input-search">

@@ -172,7 +172,8 @@ footer {
   .popup-school.active {
     display: block; }
   .popup-school .popup-sch-inner {
-    height: 480px; }
+    height: 480px;
+    position: fixed; }
     .popup-school .popup-sch-inner h3 {
       margin-bottom: 0;
       font-size: 24px;
@@ -497,7 +498,7 @@ footer {
       display: inline-block;
       margin: 10px 7px 50px 7px;
       position: relative; }
-      .sect-best-schools .block-scores-filter .s-filter:hover .s-dropdown {
+      .sect-best-schools .block-scores-filter .s-filter.active .s-dropdown {
         display: block; }
       .sect-best-schools .block-scores-filter .s-filter p {
         font-size: 14px;
@@ -543,7 +544,10 @@ footer {
         margin-top: 3px;
         background: #ffffff;
         position: absolute;
-        width: 99%; }
+        width: 99%;
+        max-height: 300px;
+        overflow: hidden;
+        z-index: 100; }
         .sect-best-schools .block-scores-filter .s-filter .s-dropdown ul {
           list-style-type: none;
           padding: 0;

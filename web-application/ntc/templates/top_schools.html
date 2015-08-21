@@ -1,0 +1,21 @@
+{% load i18n %}
+<table>
+    {% if schools %}
+        <tr>
+            <th>{% trans 'Place' %}</th>
+            <th>{% trans 'School' %}</th>
+            <th>{% trans 'Average result' %}</th>
+        </tr>
+        {% for school in schools %}
+            {% if school.avg %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a class="school-name" data-school-id="{{ school.id }}" href="#">{{ school.title }}</a></td>
+                    <td>{{ school.avg }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <tr><td colspan="3" style="text-align: center">{% trans "No results for district or subject" %}</td></tr>
+    {% endif %}
+</table>
