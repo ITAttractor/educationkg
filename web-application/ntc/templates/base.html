@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>OpenEduKG</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/opensansweb/opensans-style.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
@@ -38,6 +38,7 @@
             <span><a href="#map">{% trans 'Schools by region' %}</a></span>
             <span><a href="#best-schools">{% trans 'Best schools' %}</a></span>
             <span><a href="#check-result">{% trans 'Check result' %}</a></span>
+            <span><a id="about-project" href="#">{% trans 'About project' %}</a></span>
         </div>
     </div>
 </div>
@@ -89,6 +90,17 @@
         topSchools.topSchoolsUrl = urls.topSchoolsUrl;
         topSchools.chartDrawer = chartDrawer;
         topSchools.init();
+
+        $("#about-project").on("click", function() {
+            $.ajax({
+                url: '/pages/about/',
+                type: 'get',
+                success: function(data) {
+                    $(".popup-person").html(data);
+                    $(".popup-person").addClass('active');
+                }
+            })
+        });
     });
 
 </script>

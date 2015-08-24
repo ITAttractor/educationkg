@@ -43,9 +43,11 @@ INSTALLED_APPS = (
     'schools',
     'ntc',
     'django_extensions',
-    'lettuce.django'
+    'lettuce.django',
+    'django.contrib.sites',
+    'django.contrib.flatpages'
 )
-
+SITE_ID = 1
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,7 +107,13 @@ USE_TZ = True
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'full',
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

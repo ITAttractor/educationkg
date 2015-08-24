@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('ntc.urls', namespace='ntc')),
     url(r'^school/', include('schools.urls', namespace='schools')),
-    url(r'geo/', include('geo.urls', namespace='geo'))
+    url(r'geo/', include('geo.urls', namespace='geo')),
+    url(r'pages/', include('django.contrib.flatpages.urls'))
 ]
