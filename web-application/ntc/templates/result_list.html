@@ -5,5 +5,7 @@
             <a href="#" class="show-result-link" data-result-id="{{ ntc.id }}">{{ ntc.full_name.title }}</a>
             <span>{{ ntc.school.title }}  <i class="fa fa-map-marker"></i>{{ ntc.school.district.region }}, {{ ntc.school.district }}, {{ ntc.school.address }}</span>
         </li>
+        {% empty %}
+        <li>{% trans 'Search has no results' %}</li>
     {% endfor %}
 </ul>
