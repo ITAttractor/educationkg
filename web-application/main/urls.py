@@ -15,14 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.templatetags.static import static
-from django.views.generic.base import RedirectView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('ntc.urls', namespace='ntc')),
     url(r'^school/', include('schools.urls', namespace='schools')),
     url(r'geo/', include('geo.urls', namespace='geo')),
-    url(r'pages/', include('django.contrib.flatpages.urls')),
-    url('^favicon\.ico$', RedirectView.as_view(url=static('favicon.ico')))
+    url(r'pages/', include('django.contrib.flatpages.urls'))
 ]
