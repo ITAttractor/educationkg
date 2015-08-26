@@ -155,7 +155,7 @@ footer {
   width: 900px;
   background: #ffffff;
   position: absolute;
-  top: 107px;
+  top: 50%;
   left: 15%;
   bottom: 20px;
   z-index: 1005;
@@ -163,7 +163,8 @@ footer {
   padding: 27px 10px 50px 33px;
   -webkit-box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51);
   -moz-box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51);
-  box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51); }
+  box-shadow: 0px 40px 80px 0px rgba(148, 108, 61, 0.51);
+  margin-top: -275px; }
   .popup-sch-inner span, .popup-pers-inner span {
     font-size: 16px !important; }
 
