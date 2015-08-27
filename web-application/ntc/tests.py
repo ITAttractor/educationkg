@@ -141,6 +141,7 @@ class DataIntegratorTests(TestCase):
         parsed_ntc.save()
         integrator = DataIntegrator(integration_queue)
 
+
         integrator.integrate()
         first_ntc_result = NTC.objects.last()
         expected_full_name = u'АБДЫЛАСОВА ЖИБЕК'
