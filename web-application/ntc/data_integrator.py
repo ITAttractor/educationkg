@@ -1,36 +1,88 @@
 # coding=utf-8
-from django.db.models import Q
 from geo.models import Region, District
 from ntc.models import NTC
 from schools.models import School
+import operator
+
+
+def convert_to_integer(value):
+    try:
+        return int(value)
+    except TypeError:
+        return None
+    except ValueError:
+        return None
+
+
+def part_with_length_more_than_one_or_part_numberic(part):
+    return len(part) > 1 or part.isdigit()
+
+
+def school_number_in_title_equals_numeric_part(school_title, part):
+    return part.isdigit() and part == filter(unicode.isdigit, school_title)
+
+
+def school_title_contains_non_numeric_part(school_title, part):
+    return not part.isdigit() and part in school_title
 
 
 class Searcher(object):
     def __init__(self, location_text, school_title_text):
         self.location_text = location_text
         self.school_title_text = school_title_text
+        self.region = None
+        self.district = None
+        self.filtered_schools = {}
 
     def _search_for_district(self):
-        region = self.search_for_region()
-
-        filtered_districts = District.objects.filter(region=region)
+        filtered_districts = District.objects.filter(region=self.region)
         for district in filtered_districts:
             if district.title in self.location_text:
-                return district
+                self.district = district
 
-    def search_for_region(self):
+    def _search_for_region(self):
         for region in Region.objects.all():
             if region.title in self.location_text:
-                return region
+                self.region = region
 
     def search_for_school(self):
-        district = self._search_for_district()
-        schools = School.objects.filter(district=district)
+        self._search_for_region()
+        self._search_for_district()
+        self._filter_schools()
 
-        school_title_parts = self.school_title_text.replace(u"№", "").split(" ")
-        # http://stackoverflow.com/questions/7088173/how-to-query-model-where-name-contains-any-word-in-python-list
-        filtered_schools = schools.filter(reduce(lambda x, y: x | y, [Q(title__contains=part) for part in school_title_parts]))
-        return filtered_schools.first()
+        return self._get_school_from_filtered()
+
+    def _filter_schools(self):
+        schools = School.objects.filter(district=self.district)
+
+        school_title_parts = self._split_and_clean_school_title()
+
+        for school in schools:
+            match_count = 0
+            for part in school_title_parts:
+                if part_with_length_more_than_one_or_part_numberic(part):
+                    if school_number_in_title_equals_numeric_part(school.title, part):
+                        # has more weight if match by school number
+                        match_count += 5
+                    elif school_title_contains_non_numeric_part(school.title, part):
+                        match_count += 1
+
+            if match_count > 0:
+                self.filtered_schools[school] = match_count
+
+    def _get_school_from_filtered(self):
+        if self.filtered_schools:
+            return self._get_school_with_maximum_match_count()
+
+    def _get_school_with_maximum_match_count(self):
+        return max(self.filtered_schools.iteritems(), key=operator.itemgetter(1))[0]
+
+    def _split_and_clean_school_title(self):
+        return self.school_title_text.replace(u"№", "")\
+            .replace("-", ' ')\
+            .replace('.', ' ')\
+            .replace('"', '')\
+            .split(" ")
 
 
 class DataIntegrator(object):
@@ -59,21 +111,21 @@ class DataIntegrator(object):
             ntc = NTC()
             ntc.school = school
             ntc.full_name = item.full_name
-            ntc.math = item.math
-            ntc.physics = item.physics
-            ntc.chemistry = item.chemistry
-            ntc.geometry = item.geometry
-            ntc.biology = item.biology
-            ntc.geography = item.geography
-            ntc.history = item.history
-            ntc.eng_lang = item.eng_lang
-            ntc.ger_lang = item.ger_lang
-            ntc.fr_lang = item.fr_lang
-            ntc.kyr_lang = item.kyr_lang
-            ntc.rus_lang = item.rus_lang
-            ntc.uzb_lang = item.uzb_lang
-            ntc.informatics = item.informatics
-            ntc.civics = item.civics
+            ntc.math = convert_to_integer(item.math)
+            ntc.physics = convert_to_integer(item.physics)
+            ntc.chemistry = convert_to_integer(item.chemistry)
+            ntc.geometry = convert_to_integer(item.geometry)
+            ntc.biology = convert_to_integer(item.biology)
+            ntc.geography = convert_to_integer(item.geography)
+            ntc.history = convert_to_integer(item.history)
+            ntc.eng_lang = convert_to_integer(item.eng_lang)
+            ntc.ger_lang = convert_to_integer(item.ger_lang)
+            ntc.fr_lang = convert_to_integer(item.fr_lang)
+            ntc.kyr_lang = convert_to_integer(item.kyr_lang)
+            ntc.rus_lang = convert_to_integer(item.rus_lang)
+            ntc.uzb_lang = convert_to_integer(item.uzb_lang)
+            ntc.informatics = convert_to_integer(item.informatics)
+            ntc.civics = convert_to_integer(item.civics)
             ntc.notes = item.notes
             ntc.parsed_ntc = item
             self.ntc_objects_to_save.append(ntc)

@@ -27,8 +27,8 @@ class IntegratedListFilter(SimpleListFilter):
 
 
 class ParsedNTCAdmin(admin.ModelAdmin):
-    list_display = ['full_name', 'location', 'school_title', 'timestamp', 'integrated', 'queue']
-    search_fields = ['full_name', 'location', 'school_title', 'timestamp']
+    list_display = ['full_name', 'location', 'school_title', 'timestamp', 'integrated', 'queue', 'ntc']
+    search_fields = ['full_name', 'location', 'school_title']
     list_filter = [IntegratedListFilter, 'location', 'school_title', 'integration_queue']
 
     def integrated(self, obj):

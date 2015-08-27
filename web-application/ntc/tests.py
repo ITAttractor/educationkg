@@ -142,9 +142,30 @@ class DataIntegratorTests(TestCase):
         integrator = DataIntegrator(integration_queue)
 
         integrator.integrate()
-        first_ntc_result = NTC.objects.first()
+        first_ntc_result = NTC.objects.last()
         expected_full_name = u'АБДЫЛАСОВА ЖИБЕК'
         expected_school = School.objects.get(pk=1216)
+        expected_chemistry_result = 16
+        self.assertEqual(first_ntc_result.full_name, expected_full_name)
+        self.assertEqual(first_ntc_result.school, expected_school)
+        self.assertEqual(first_ntc_result.chemistry, expected_chemistry_result)
+        self.assertEqual(integration_queue.status, True)
+
+    def test_integration_complete_for_school_with_only_numeric_title(self):
+        integration_queue = IntegrationQueue.objects.create()
+        parsed_ntc = ParsedNTC()
+        parsed_ntc.location = u'г. Бишкек Свердловский район'
+        parsed_ntc.school_title = u'1'
+        parsed_ntc.full_name = u'АБДЫЛАСОВА ЖИБЕК'
+        parsed_ntc.chemistry = '16'
+        parsed_ntc.integration_queue = integration_queue
+        parsed_ntc.save()
+        integrator = DataIntegrator(integration_queue)
+
+        integrator.integrate()
+        first_ntc_result = NTC.objects.last()
+        expected_full_name = u'АБДЫЛАСОВА ЖИБЕК'
+        expected_school = School.objects.get(pk=132)
         expected_chemistry_result = 16
         self.assertEqual(first_ntc_result.full_name, expected_full_name)
         self.assertEqual(first_ntc_result.school, expected_school)

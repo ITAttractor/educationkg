@@ -59,4 +59,4 @@ class NTC(models.Model):
     parsed_ntc = models.OneToOneField('ParsedNTC')
 
     def __unicode__(self):
-        return '%s - %s' % (self.full_name, self.school.title)
+        return '%s - %s - %s' % (self.full_name, self.school.title, self.school.district)
