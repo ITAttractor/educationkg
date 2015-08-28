@@ -37,9 +37,9 @@
         </div>
         <div class="main-menu">
             <span><a id="about-project" href="#">{% trans 'About project' %}</a></span>
-            <span><a href="#best-schools">{% trans 'Best schools' %}</a></span>
-            <span><a href="#check-result">{% trans 'Check result' %}</a></span>
-            <span><a href="#search-school" class="m-active">{% trans 'Search' %}</a></span>
+            <span><a data-scroll-nav="1">{% trans 'Best schools' %}</a></span>
+            <span><a data-scroll-nav="2">{% trans 'Check result' %}</a></span>
+            <span><a data-scroll-nav="0">{% trans 'Search' %}</a></span>
         </div>
     </div>
 </div>
@@ -50,7 +50,9 @@
         <div class="copyright">
             <p>Проект «OpenBilim» разработан во время Центрально-азиатского Xакатона по открытым данным —2015,
                 организованного
-                <a href="http://it-attractor.com" target="_blank">ОФ «ИТ Аттрактор»</a> и <a href="http://soros.kg" target="_blank">фондом «Сорос-Кыргызстан»</a></p>
+                <a href="http://it-attractor.com" target="_blank">ОФ «ИТ Аттрактор»</a> и <a href="http://soros.kg"
+                                                                                             target="_blank">фондом
+                    «Сорос-Кыргызстан»</a></p>
             <img src="{% static 'img/it-a-icon.png' %}" alt=""><img src="{% static 'img/soros-icon.png' %}" alt="">
         </div>
         <div class="f-date"><span>2015</span></div>
@@ -59,6 +61,7 @@
 
 </body>
 <script src="{% static 'js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'js/scrollIt.min.js' %}"></script>
 <script src="{% static 'js/perfect-scrollbar.jquery.min.js' %}"></script>
 <script src="{% static 'js/result-controller.js' %}"></script>
 <script src="{% static 'js/school-geo.js' %}"></script>
@@ -102,6 +105,16 @@
                     $(".popup-person").addClass('active');
                 }
             })
+        });
+
+        $.scrollIt({
+            upKey: 38,
+            downKey: 40,
+            easing: 'linear',
+            scrollTime: 600,
+            activeClass: 'm-active',
+            onPageChange: null,
+            topOffset: -120
         });
     });
 

@@ -1,9 +1,6 @@
 <div class="popup-overlay"></div>
 <div class="popup-pers-inner">
     <h3>{{ flatpage.title }}</h3>
-    <div id="flatpage-content" style="height: 490px">{{ flatpage.content|safe }}</div>
+    <div id="flatpage-content" style="height: 490px; font-size: 14px">{{ flatpage.content|safe }}</div>
     <div class="popup-close"></div>
 </div>
-<script>
-    $("#flatpage-content").perfectScrollbar();
-</script>
