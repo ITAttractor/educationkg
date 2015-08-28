@@ -533,7 +533,7 @@ footer {
           top: 0;
           right: 0;
           background: #ff9d29;
-          padding: 9px 5px 4px 7px;
+          padding: 9px 5px px 7px;
           cursor: pointer; }
           .sect-best-schools .block-scores-filter .s-filter .select-box .s-angle::before {
             content: "";
