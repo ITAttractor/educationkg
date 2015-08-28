@@ -56,12 +56,16 @@
         </div>
     </section>
     <section class="sect-map" id="map">
-        <div class="block-map overflow-hidden">
-            <h2>{% blocktrans %}{{ total_students }} students{% endblocktrans %} {% trans 'from' %} {% blocktrans %}{{ total_schools }} schools{% endblocktrans %}</h2>
-            <a href="http://ntc.kg" target="_blank">{% trans 'are tested at NTC in 2015 year' %}.</a>
-            {% include 'map.html' %}
-            <div class="map-legend"></div>
+        <div class="container">
+            <div class="block-map overflow-hidden">
+                <h2>{% blocktrans %}{{ total_students }} students{% endblocktrans %} {% trans 'from' %}
+                    {% blocktrans %}{{ total_schools }} schools{% endblocktrans %}</h2>
+                <a href="http://ntc.kg" target="_blank">{% trans 'are tested at NTC in 2015 year' %}.</a>
+                {% include 'map.html' %}
+                <div class="map-legend"></div>
+            </div>
         </div>
+
     </section>
     <section class="sect-best-schools" id="best-schools">
         <div class="best-sch-border-top">
