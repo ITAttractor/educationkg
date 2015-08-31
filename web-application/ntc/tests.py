@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase, Client
+from django.utils.translation import ugettext
 from ntc.average_results_calculator import AverageResultsCalculator
 from ntc.data_integrator import DataIntegrator, Searcher
 from ntc.data_saver import NTCDataSaver
@@ -212,11 +213,11 @@ class AverageResultsCalculatorTests(TestCase):
         actual_subjects = actual.get_subjects()
 
         expected_school_averages = [17.0, 13.833333333333334, 17.904761904761905, 14.5, 17.818181818181817, 4.0, 14.0, 16.5625]
-        expected_country_averages = [19.048648648648648, 17.52317880794702, 17.5203488372093, 13.301587301587302, 19.442477876106196, 8.947368421052632, 17.273224043715846, 20.594543744120415]
-        expected_subjects = ["Kyrgyz language", "Biology", "Russian language", "Geography", "Chemistry", "Physics",
-                             "English language", "History"]
+        expected_country_averages = [19.053763440860216, 17.538205980066444, 17.5203488372093, 13.31496062992126, 19.462222222222223, 8.947368421052632, 17.273224043715846, 20.609595484477893]
+        expected_subjects = [ugettext("Kyrgyz language"), ugettext("Biology"), ugettext("Russian language"), ugettext("Geography"), ugettext("Chemistry"),
+                             ugettext("Physics"), ugettext("English language"), ugettext("History")]
 
-        self.assertEqual(actual_school_averages, expected_school_averages, 4)
-        self.assertEqual(actual_country_averages, expected_country_averages, 4)
+        self.assertEqual(actual_school_averages, expected_school_averages)
+        self.assertEqual(actual_country_averages, expected_country_averages)
         self.assertEqual(actual_subjects, expected_subjects)
 
