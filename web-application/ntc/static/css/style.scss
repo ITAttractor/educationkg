@@ -96,6 +96,7 @@ html,body {
     margin-bottom: 5px;
     h1 {
       display: inline-block;
+      margin-right: 10px;
       a {
         font-family: 'open_sansregular';
         font-weight: 400;
@@ -105,7 +106,7 @@ html,body {
         vertical-align: top;
         border: 0;
         strong {
-          vertical-align: top;
+          //vertical-align: top;
         }
       }
     }
@@ -126,7 +127,7 @@ html,body {
       display: inline-block;
       width: 253px;
       vertical-align: text-top;
-      margin-top: 2px;
+      margin-top: 3px;
       margin-left: 10px;
     }
   }
@@ -382,11 +383,11 @@ footer {
         width: 40px;
         height: 55px;
         background: #ff9d29;
-        transform: skew(-35deg, 0deg) ;
-        -webkit-transform: skew(-35deg, 0deg) ;
-        -moz-transform: skew(-35deg, 0deg) ;
-        -o-transform: skew(-35deg, 0deg) ;
-        -ms-transform: skew(-35deg, 0deg) ;
+        transform: skew(-30deg, 0deg) ;
+        -webkit-transform: skew(-30deg, 0deg) ;
+        -moz-transform: skew(-30deg, 0deg) ;
+        -o-transform: skew(-30deg, 0deg) ;
+        -ms-transform: skew(-30deg, 0deg) ;
       }
 
 
@@ -399,9 +400,9 @@ footer {
         font-family: 'open_sansbold';
         vertical-align: baseline;
         position: relative;
-        top: 13px;
+        top: 15px;
         left: -2px;
-        padding: 0px 21px 0px 13px;
+        padding: 0px 21px 0px 10px;
         cursor: pointer;
       }
     }
@@ -417,7 +418,7 @@ footer {
     font-size: 14px;
     line-height: 24px;
     font-family: 'open_sansitalic';
-    margin: 2px 28px;
+    margin: 2px 25px;
     span {
       border-bottom: 1px dashed #000000;
     }
@@ -523,7 +524,7 @@ footer {
   h2 {
     font-size: 36px;
     line-height: 34px;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
   }
   a {
     font-size: 16px;
@@ -554,6 +555,7 @@ footer {
       height: 10px; /* Can be anything */
       position: relative;
       background: #fdddb6;
+      margin-top: 10px;
       &:before{
         position: absolute;
         top: 8px;

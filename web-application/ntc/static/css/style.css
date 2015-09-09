@@ -70,7 +70,8 @@ html, body {
     display: inline-block;
     margin-bottom: 5px; }
     .header .logo h1 {
-      display: inline-block; }
+      display: inline-block;
+      margin-right: 10px; }
       .header .logo h1 a {
         font-family: 'open_sansregular';
         font-weight: 400;
@@ -79,8 +80,6 @@ html, body {
         color: #ff9d29;
         vertical-align: top;
         border: 0; }
-        .header .logo h1 a strong {
-          vertical-align: top; }
     .header .logo .logo-line {
       width: 1px;
       height: 80px;
@@ -98,7 +97,7 @@ html, body {
       display: inline-block;
       width: 253px;
       vertical-align: text-top;
-      margin-top: 2px;
+      margin-top: 3px;
       margin-left: 10px; }
   .header .main-menu {
     display: inline-block;
@@ -309,11 +308,11 @@ footer {
         width: 40px;
         height: 55px;
         background: #ff9d29;
-        transform: skew(-35deg, 0deg);
-        -webkit-transform: skew(-35deg, 0deg);
-        -moz-transform: skew(-35deg, 0deg);
-        -o-transform: skew(-35deg, 0deg);
-        -ms-transform: skew(-35deg, 0deg); }
+        transform: skew(-30deg, 0deg);
+        -webkit-transform: skew(-30deg, 0deg);
+        -moz-transform: skew(-30deg, 0deg);
+        -o-transform: skew(-30deg, 0deg);
+        -ms-transform: skew(-30deg, 0deg); }
       .input-search-block .input-search .search-btn button {
         background: transparent;
         border: 0;
@@ -323,9 +322,9 @@ footer {
         font-family: 'open_sansbold';
         vertical-align: baseline;
         position: relative;
-        top: 13px;
+        top: 15px;
         left: -2px;
-        padding: 0px 21px 0px 13px;
+        padding: 0px 21px 0px 10px;
         cursor: pointer; }
 
 .search-school {
@@ -336,7 +335,7 @@ footer {
     font-size: 14px;
     line-height: 24px;
     font-family: 'open_sansitalic';
-    margin: 2px 28px; }
+    margin: 2px 25px; }
     .search-school .exmpl span {
       border-bottom: 1px dashed #000000; }
 
@@ -416,7 +415,7 @@ footer {
   .block-map h2 {
     font-size: 36px;
     line-height: 34px;
-    margin-bottom: 8px; }
+    margin: 0 0 8px; }
   .block-map a {
     font-size: 16px;
     line-height: 34px;
@@ -442,7 +441,8 @@ footer {
       height: 10px;
       /* Can be anything */
       position: relative;
-      background: #fdddb6; }
+      background: #fdddb6;
+      margin-top: 10px; }
       .block-map .map-legend .meter:before {
         position: absolute;
         top: 8px;
