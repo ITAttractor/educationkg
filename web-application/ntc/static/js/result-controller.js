@@ -41,6 +41,8 @@ var ResultController = function () {
     this.initCloseButton = function() {
         $this.popupContainer.on("click", ".popup-close", function() {
             $this.popupContainer.removeClass('active');
+            history.pushState("", document.title, window.location.pathname);
+
         })
     };
 

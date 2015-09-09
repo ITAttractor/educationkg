@@ -36,7 +36,7 @@
             </p>
         </div>
         <div class="main-menu">
-            <span><a id="about-project" href="#">{% trans 'About project' %}</a></span>
+            <span><a id="about-project" href="#about">{% trans 'About project' %}</a></span>
             <span><a data-scroll-nav="1">{% trans 'Best schools' %}</a></span>
             <span><a data-scroll-nav="2">{% trans 'Check result' %}</a></span>
             <span><a data-scroll-nav="0">{% trans 'Search' %}</a></span>
@@ -68,56 +68,7 @@
 <script src="{% static 'js/Chart.min.js' %}"></script>
 <script src="{% static 'js/chart-drawer.js' %}"></script>
 <script src="{% static 'js/top-schools.js' %}"></script>
-<script>
-    $(document).ready(function () {
-        var resultController = new ResultController();
-        resultController.searchResultsUrl = urls.searchResult;
-        resultController.getResultUrl = urls.getResult;
-        resultController.popupContainer = $(".popup-person");
-        resultController.searchResultsContainer = $(".pupil-list");
-        resultController.init();
-
-        var schoolGeo = new SchoolGeo();
-        schoolGeo.url = urls.schoolGeoData;
-        schoolGeo.mapLegendContainer = $(".map-legend");
-        schoolGeo.init();
-
-        var chartDrawer = new ChartDrawer();
-        chartDrawer.popupContainer = $(".popup-school");
-        chartDrawer.urlPattern = urls.schoolChartData;
-        chartDrawer.initLinks();
-        chartDrawer.initCloseButton();
-
-        var topSchools = new TopSchools();
-        topSchools.container = $(".block-table-best-school");
-        topSchools.getDistrictsUrl = urls.districts;
-        topSchools.topSchoolsUrl = urls.topSchoolsUrl;
-        topSchools.chartDrawer = chartDrawer;
-        topSchools.init();
-
-        $("#about-project").on("click", function(event) {
-            event.preventDefault();
-            $.ajax({
-                url: '/pages/about/',
-                type: 'get',
-                success: function(data) {
-                    $(".popup-person").html(data);
-                    $(".popup-person").addClass('active');
-                }
-            })
-        });
-
-        $.scrollIt({
-            upKey: 38,
-            downKey: 40,
-            easing: 'linear',
-            scrollTime: 600,
-            onPageChange: null,
-            topOffset: -120
-        });
-    });
-
-</script>
+<script src="{% static 'js/main.js' %}"></script>
 {% block js %}
 {% endblock %}
 </html>
